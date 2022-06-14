@@ -38,7 +38,7 @@
         android:id="@+id/deleteCourseSubmitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/admin_create_course_course_create"
+        android:text="@string/admin_delete_course_course_delete"
         android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
