@@ -26,4 +26,14 @@ public class AdminCreateCourse extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_create_course);
     }
+     public void createCourse(Product product) {
+           
+
+            ContentValues values = new ContentValues();
+
+            values.put(COLUMN_PRODUCT_NAME, product.getCourseName());
+            values.put(COLUMN_PRODUCT_CODE, product.getCourseCode());
+
+           
+        }
 }
