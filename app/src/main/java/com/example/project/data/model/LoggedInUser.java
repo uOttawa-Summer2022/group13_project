@@ -7,10 +7,12 @@ public class LoggedInUser {
 
     private String userId;
     private String displayName;
+    private String userRole;
 
-    public LoggedInUser(String userId, String displayName) {
+    public LoggedInUser(String userId, String displayName, String role) {
         this.userId = userId;
         this.displayName = displayName;
+        this.userRole = role;
     }
 
     public String getUserId() {
@@ -20,4 +22,5 @@ public class LoggedInUser {
     public String getDisplayName() {
         return displayName;
     }
+    public String getUserRole(){return userRole;}
 }
