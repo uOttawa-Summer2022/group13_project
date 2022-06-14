@@ -16,5 +16,11 @@
     <string name="user_student">Student</string>
     <string name="user_instructor">Instructor</string>
     <string name="user_register">Submit</string>
-
+    <string name="admin_create_course">Create Course</string>
+    <string name="admin_edit_course">Edit Course</string>
+    <string name="admin_delete_course">Delete Course</string>
+    <string name="admin_manage_user_account">Manage User Account</string>
+    <string name="admin_create_course_course_create">Create</string>
+    <string name="admin_delete_course_course_delete">Delete</string>
+    <string name="admin_edit_course_course_update">Update</string>
 </resources>
