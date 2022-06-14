@@ -67,6 +67,22 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(deleteCourseIntent);
             }
         });
+         
+         private void viewCourse() {
+        courseList.clear();
+        Cursor cursor = adminCreateCourse.getData();
+        if (cursor.getCount() == 0) {
+            Toast.makeText(MainActivity.this, "Nothing to show", Toast.LENGTH_SHORT).show();
+        } else {
+            while (cursor.moveToNext()) {
+                courseList.add(cursor.getString(1) + " (" +cursor.getString(2)+")");
+            }
+        }
+
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
+        courseListView.setAdapter(adapter);
+    }
+         
         private void createCourse(View view){
             AdminCreateCourse admincreateCourse = new AdminCreateCourse(this);
 
