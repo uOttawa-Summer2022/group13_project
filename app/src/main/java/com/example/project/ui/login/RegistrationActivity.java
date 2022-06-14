@@ -34,9 +34,9 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        final EditText firstName = findViewById(R.id.editTextTextPersonName);
+        final EditText firstName = findViewById(R.id.editTextPersonName);
         final EditText lastName = findViewById(R.id.editTextLastName);
-        final EditText email = findViewById(R.id.editTextTextEmailAddress);
+        final EditText email = findViewById(R.id.editTextEmailAddress);
         final EditText password = findViewById(R.id.editTextTextPassword);
         final RadioButton roleStu = findViewById(R.id.radioButton2);
         final RadioButton roleIns = findViewById(R.id.radioButton3);
