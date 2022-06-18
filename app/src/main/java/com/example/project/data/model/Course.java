@@ -1,20 +1,21 @@
-package com.example.project.ui.login;
+package com.example.project.data.model;
 
 public class Course {
     private int courseId;
     private String courseName;
-    private int courseCode;
+    //Changed here to int from String
+    private String courseCode;
 
     public Course() {
     }
 
-    public Course(int courseIId, String courseName, int courseCode){
+    public Course(int courseIId, String courseName, String courseCode){
         this.courseId = courseId;
         this.courseName=courseName;
         this.courseCode=courseCode;
     }
 
-    public Course(String courseName, int courseCode) {
+    public Course(String courseName, String courseCode) {
         this.courseName=courseName;
         this.courseCode=courseCode;
     }
@@ -35,12 +36,20 @@ public class Course {
         this.courseName=courseName;
     }
 
-    public double getCourseCode() {
+    public String getCourseCode() {
         return courseCode;
     }
 
-    public void setCourseCode(int courseCode) {
+    public void setCourseCode(String courseCode) {
         this.courseCode=courseCode;
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseName='" + courseName + '\'' +
+                ", courseCode='" + courseCode + '\'' +
+                '}';
     }
 }
 
