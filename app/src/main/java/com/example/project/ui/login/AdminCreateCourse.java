@@ -22,6 +22,8 @@ public class AdminCreateCourse extends AppCompatActivity {
     boolean isNameValid = false;
     FireBaseDataBaseHandler fBH;
 
+
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
