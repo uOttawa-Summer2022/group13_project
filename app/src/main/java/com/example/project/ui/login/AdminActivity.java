@@ -35,7 +35,7 @@ public class AdminActivity extends AppCompatActivity {
         final Button editC = findViewById(R.id.editCourseButton);
         final Button deleteC = findViewById(R.id.deleteCourseButton);
         final Button manageB = findViewById(R.id.manage_user_account);
-        manageB.setEnabled(false);
+        manageB.setEnabled(true);
         
         courseList = new ArrayList<>();
 
@@ -68,34 +68,14 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
          
-         private void viewCourse() {
-        courseList.clear();
-        Cursor cursor = adminCreateCourse.getData();
-        if (cursor.getCount() == 0) {
-            Toast.makeText(MainActivity.this, "Nothing to show", Toast.LENGTH_SHORT).show();
-        } else {
-            while (cursor.moveToNext()) {
-                courseList.add(cursor.getString(1) + " (" +cursor.getString(2)+")");
+    manageB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ManageAccountsIntent = new Intent(AdminActivity.this, AdminManageAccountsActivity.class);
+                startActivity(AdminManageAccounts);
             }
-        }
-
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
-        courseListView.setAdapter(adapter);
-    }
-         
-        private void createCourse(View view){
-            AdminCreateCourse admincreateCourse = new AdminCreateCourse(this);
-
-            int code = Integer.parseInt(courseCode.getText().toString());
-
-            Course course = new Course(courseName.getText().toString(), code);
-
-            AdminCreateCourse.createCourse(course);
-
-
-            courseName.setText("");
-            courseCode.setText("");
-        }
+        });   
+        
 
     }
 }
