@@ -15,20 +15,24 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class FireBaseDataBaseHandler {
 
     private FirebaseDatabase myDataBase;
     private DatabaseReference myRootRef ;
     private final String COURSE_NAME = "CourseName";
-    private final String USER_NAME = "UserName";
+    private final String USER_NAME = "UserName";  //user name denotes the email
     private final String FIRST_NAME = "FirstName";
     private final String LAST_NAME = "LastName";
     private final String PASSWORD = "Password";
     private final String ROLE = "Role";
     private ArrayList<Course> courses;
-    private ArrayList<User> users;
+    private Map<String, User> users;
 
 
 
@@ -40,7 +44,7 @@ public class FireBaseDataBaseHandler {
         myDataBase = FirebaseDatabase.getInstance();
         myRootRef = myDataBase.getReference();
         courses = new ArrayList<Course>();
-        users = new ArrayList<User>();
+        users = new HashMap<String , User>();
 
     }
 
@@ -64,7 +68,9 @@ public class FireBaseDataBaseHandler {
        });
 
     }
+
     public void readUsersFromFireBase(){
+        Log.d("DBFB", "readUsersFromFire");
         myRootRef.child("Users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -76,7 +82,7 @@ public class FireBaseDataBaseHandler {
                             //d.child(FIRST_NAME).getValue().toString(), d.child(LAST_NAME).getValue().toString(),
                     //d.child(PASSWORD).getValue().toString(), User.convertToRole(d.child("roleAsString").getValue().toString()) );
                     User u = dataSnapshot.child(d.getKey()).getValue(User.class);
-                    users.add(u);
+                    users.put(d.getKey().toString(), u);
                     Log.d("DBFB", u.toString() + " and the user saved size is " + users.size());
 
                 }
@@ -91,6 +97,8 @@ public class FireBaseDataBaseHandler {
     public void addCourseToFireBase(Course course){
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_NAME).setValue(course.getCourseName());
     }
+
+
     public void addUserToFireBase(User u){
         Log.d("DBFB", "addUser");
         String key = myRootRef.child("Users").push().getKey();
@@ -98,9 +106,34 @@ public class FireBaseDataBaseHandler {
         Log.d("DBFB", "addUserDone");
     }
 
-    public void editData(Course course){
+    public void editCourseName(Course course){
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_NAME).setValue(course.getCourseName());
+    }
+
+
+    public void deleteCourse(Course course){
+        Log.d("DBFB", "from databasehandler delecourse");
+        myRootRef.child("Courses").child(course.getCourseCode()).setValue(null);
+    }
+    public void deleteUser(User u){
+        Log.d("DBFB", "from databasehandler deleteUser");
+        Iterator<String> it = users.keySet().iterator();
+        String keyToDelete= null;
+        while(it.hasNext()){
+            String currentKey = it.next();
+            if (users.get(currentKey ).getUserName().equals(u.getUserName())) {
+                Log.d("DBFB", "deleteUser found key");
+                keyToDelete = currentKey;
+            }
+
+        }
+        if(keyToDelete!=null){
+            Log.d("DBFB", "deleteUser done");
+            myRootRef.child("Users").child(keyToDelete).setValue(null);
+        }
 
     }
+
 
     public boolean courseCodeExistsInDatabase(Course course) {
         for (Course c: courses) {
@@ -111,11 +144,22 @@ public class FireBaseDataBaseHandler {
         }
         return false;
     }
+
     public boolean userExistsInDatabase(User user) {
 
-        for (User u: users) {
+        for (User u: users.values()) {
             Log.d("DBFB", "Check!!!!! u is" + u.toString() + " user is " + user.toString());
             if(user.getUserName().equals(u.getUserName())){
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean userNameAndPasswordMatches(User user) {
+
+        for (User u: users.values()) {
+            Log.d("DBFB", "Check!!!!! u is" + u.toString() + " user is " + user.toString());
+            if(user.getUserName().equals(u.getUserName()) && user.getPassword().equals(u.getPassword()) ){
                 return true;
             }
         }
@@ -124,9 +168,35 @@ public class FireBaseDataBaseHandler {
     public ArrayList<Course> getCourses(){
         return this.courses;
     }
+
     public ArrayList<User> getUsers(){
-        return this.users;
+        ArrayList<User> usersAL = new ArrayList<>();
+
+        for (User u: users.values()) {
+            usersAL.add(u);
+        }
+        return usersAL;
     }
+    public ArrayList<String> getUserNames(){
+        ArrayList<String> userNAL = new ArrayList<String>();
+
+        for (User u: users.values()) {
+            userNAL.add(u.getUserName());
+        }
+        return userNAL;
+    }
+    public User getUser(String userName) {
+        for (User u : users.values()) {
+            Log.d("DBFB", "Check!!!!! u is" + u.toString() + " user is " + u.toString());
+            if (userName.equals(u.getUserName())) {
+                return u;
+            }
+
+        }
+        return new User();
+    }
+
+
     public boolean isUsersCallbackDone() {
         return isUsersCallbackDone;
     }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -20,7 +21,7 @@ public class AdminActivity extends AppCompatActivity {
         final Button editC = findViewById(R.id.editCourseButton);
         final Button deleteC = findViewById(R.id.deleteCourseButton);
         final Button manageB = findViewById(R.id.manage_user_account);
-        manageB.setEnabled(false);
+        //manageB.setEnabled(false);
         createC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,8 +39,17 @@ public class AdminActivity extends AppCompatActivity {
         deleteC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("DBFB", "delete button clicked");
                 Intent deleteCourseIntent = new Intent(AdminActivity.this, AdminDeleteCourseActivity.class);
                 startActivity(deleteCourseIntent);
+            }
+        });
+        manageB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("DBFB", "userM button clicked");
+                Intent userAdIntent = new Intent(AdminActivity.this, AdminUserAccountManagement.class);
+                startActivity(userAdIntent);
             }
         });
     }

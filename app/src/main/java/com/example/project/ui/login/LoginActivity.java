@@ -81,14 +81,21 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 if (loginResult.getSuccess() != null) {
                     updateUiWithUser(loginResult.getSuccess());
-                    Intent adminI = new Intent(LoginActivity.this, AdminActivity.class);
-                    startActivity(adminI);
+                    if(loginResult.getSuccess().getUserRole().equals("ADMIN")) {
+                        Intent adminI = new Intent(LoginActivity.this, AdminActivity.class);
+                        startActivity(adminI);
+                    }
+                    else{
+                        String welcome = getString(R.string.welcome) +  loginResult.getSuccess().getDisplayName() + " !" + " You are registered as " + loginResult.getSuccess().getUserRole() ;
+                        // TODO : initiate successful logged in experience
+                        Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+                    }
 
                 }
                 setResult(Activity.RESULT_OK);
 
                 //Complete and destroy login activity once successful
-                finish();
+                //finish();
             }
         });
 
