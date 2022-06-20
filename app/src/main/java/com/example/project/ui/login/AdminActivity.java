@@ -35,16 +35,16 @@ public class AdminActivity extends AppCompatActivity {
         final Button deleteC = findViewById(R.id.deleteCourseButton);
         final Button manageB = findViewById(R.id.manage_user_account);
 
-        manageB.setEnabled(false);
+        manageB.setEnabled(true);
         
-        courseList = new ArrayList<>();
+       // courseList = new ArrayList<>();
 
-        courseName = (EditText)findViewById(R.id.courseName);
-        courseCode = (EditText)findViewById(R.id.courseCode);
+        //courseName = (EditText)findViewById(R.id.courseName);
+       // courseCode = (EditText)findViewById(R.id.courseCode);
         
-        courseListView = findViewById(R.id.courseListView);
+        //courseListView = findViewById(R.id.courseListView);
 
-        adminCreateCourse = new AdminCreateCourse(this);
+       // adminCreateCourse = new AdminCreateCourse(this);
         createC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
