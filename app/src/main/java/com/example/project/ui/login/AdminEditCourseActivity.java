@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.project.R;
 import com.example.project.data.FireBaseDataBaseHandler;
@@ -52,8 +53,16 @@ public class AdminEditCourseActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(courseCode.getText().toString()!= null){
+                if(courseCode.getText()!= null && courseCode.getText().toString().matches("[A-Z]{3}[0-9]{4}")) {
+                    courseCode.setError(null);
                     isCodeValid = true;
+                    //courseCode.setError("");
+                }else{
+                    courseCode.setError("Coursecode format should be (i.e): ABC1234");
+                    isCodeValid = false;
+                    // Toast.makeText(AdminCreateCourse.this, "Coursecode format should be (i.e): ABC1234", Toast.LENGTH_SHORT).show();
+
+
                 }
                 if(enableCreateButton()){
                     updateBtn.setEnabled(true);
@@ -93,6 +102,21 @@ public class AdminEditCourseActivity extends AppCompatActivity {
                 course.setCourseCode(courseCode.getText().toString());
                 course.setCourseName(courseName.getText().toString());
                 ///have to instantiate databse obj and create a course obj and add that to datab
+                if(fBH.courseCodeExistsInDatabase(course)){
+                    Log.d("DBFB", "course exist");
+                    Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  found !!" , Toast.LENGTH_SHORT).show();
+                    fBH.editCourseName(course);
+                }else{
+                    Log.d("DBFB", "Course with"+course.getCourseCode()+"do not exist ");
+                    Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  do not exist in the database" , Toast.LENGTH_SHORT).show();
+                }
+                courseCode.setText("");
+                courseCode.setError(null);
+                courseName.setText("");
+                isCodeValid = false;
+                isNameValid = false;
+                updateBtn.setEnabled(false);
+                Toast.makeText(getApplicationContext(), "CourseName for " + course.getCourseCode() + " has been changed" , Toast.LENGTH_SHORT).show();
             }
         });
 
