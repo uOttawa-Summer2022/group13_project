@@ -30,6 +30,7 @@ public class AdminCreateCourse extends AppCompatActivity {
         fBH = new FireBaseDataBaseHandler();
         fBH.readCoursesFromFireBase();
         setContentView(R.layout.activity_admin_create_course);
+        Log.d("DBFB", "from createCourseActivity");
         final EditText courseCode = findViewById(R.id.createCourseCourseNumber);
         final EditText courseName = findViewById(R.id.createCourseCourseName);
         final Button createBtn = findViewById(R.id.createCourseSubmitButton);
