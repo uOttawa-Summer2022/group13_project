@@ -13,7 +13,9 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.project.R;
+
 import com.example.project.data.FireBaseDataBaseHandler;
+
 import com.example.project.data.model.Course;
 
 public class AdminDeleteCourseActivity extends AppCompatActivity {
@@ -144,5 +146,6 @@ public class AdminDeleteCourseActivity extends AppCompatActivity {
             return false;
         }
     }
+
 
 }
