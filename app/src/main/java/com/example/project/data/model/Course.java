@@ -9,11 +9,11 @@ public class Course {
     public Course() {
     }
 
-    public Course(int courseIId, String courseName, String courseCode){
-        this.courseId = courseId;
-        this.courseName=courseName;
-        this.courseCode=courseCode;
-    }
+//    public Course(int courseIId, String courseName, String courseCode){
+//        this.courseId = courseId;
+//        this.courseName=courseName;
+//        this.courseCode=courseCode;
+//    }
 
     public Course(String courseName, String courseCode) {
         this.courseName=courseName;

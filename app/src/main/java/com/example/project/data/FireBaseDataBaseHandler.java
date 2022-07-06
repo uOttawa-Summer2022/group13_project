@@ -37,6 +37,7 @@ public class FireBaseDataBaseHandler {
 
 
     private boolean isUsersCallbackDone = false;
+    private boolean isCourseCallbackDone = false;
 
 
 
@@ -52,6 +53,7 @@ public class FireBaseDataBaseHandler {
        myRootRef.child("Courses").addValueEventListener(new ValueEventListener() {
            @Override
            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+               isCourseCallbackDone = true;
                courses.clear();
                for(DataSnapshot d: dataSnapshot.getChildren() ){
                    Course c = new Course(d.child(COURSE_NAME).getValue().toString(),d.getKey());
@@ -195,7 +197,10 @@ public class FireBaseDataBaseHandler {
         }
         return new User();
     }
-
+    public boolean isCourseCallbackDone()
+    {
+        return this.isCourseCallbackDone;
+    }
 
     public boolean isUsersCallbackDone() {
         return isUsersCallbackDone;

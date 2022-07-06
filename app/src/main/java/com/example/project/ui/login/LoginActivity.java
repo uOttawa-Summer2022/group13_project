@@ -50,7 +50,9 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = binding.login;
         final ProgressBar loadingProgressBar = binding.loading;
         final Button registerButton = binding.registration;
+        final Button genUserBtn = binding.generalUserBtn;
         registerButton.setEnabled(true);
+        genUserBtn.setEnabled(true);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -84,6 +86,10 @@ public class LoginActivity extends AppCompatActivity {
                     if(loginResult.getSuccess().getUserRole().equals("ADMIN")) {
                         Intent adminI = new Intent(LoginActivity.this, AdminActivity.class);
                         startActivity(adminI);
+                    }
+                    else if(loginResult.getSuccess().getUserRole().equals("INSTRUCTOR")){
+                        Intent generaluserI = new Intent(LoginActivity.this,GeneralUserActivity.class);
+                        startActivity(generaluserI);
                     }
                     else{
                         String welcome = getString(R.string.welcome) +  loginResult.getSuccess().getDisplayName() + " !" + " You are registered as " + loginResult.getSuccess().getUserRole() ;
@@ -143,6 +149,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                Intent registrationI = new Intent(LoginActivity.this, RegistrationActivity.class);
                startActivity(registrationI);
+            }
+        });
+
+        genUserBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent generaluserI = new Intent(LoginActivity.this,GeneralUserActivity.class);
+                startActivity(generaluserI);
             }
         });
     }
