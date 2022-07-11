@@ -2,49 +2,59 @@ package com.example.project.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< Updated upstream
-=======
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
->>>>>>> Stashed changes
+
 
 import com.example.project.R;
+import com.example.project.data.FireBaseDataBaseHandler;
+import com.example.project.data.model.Course;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AdminCreateCourse extends AppCompatActivity {
-<<<<<<< Updated upstream
-=======
+
     boolean isCodeValid = false;
     boolean isNameValid = false;
     FireBaseDataBaseHandler fBH;
     ArrayAdapter<Course> adapter;
->>>>>>> Stashed changes
 
+
+
+  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fBH = new FireBaseDataBaseHandler();
+        fBH.readCoursesFromFireBase();
         setContentView(R.layout.activity_admin_create_course);
-<<<<<<< Updated upstream
-=======
+
         final EditText courseCode = findViewById(R.id.createCourseCourseNumber);
         final EditText courseName = findViewById(R.id.createCourseCourseName);
         final Button createBtn = findViewById(R.id.createCourseSubmitButton);
         final Button backToMenu = findViewById(R.id.returnToMenu);
+
         final ListView listview = findViewById(R.id.createCourseListView);
+
 
 
 
         courseCode.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
                 displayCourses();
+
             }
 
             @Override
@@ -76,7 +86,9 @@ public class AdminCreateCourse extends AppCompatActivity {
         courseName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
                 displayCourses();
+
             }
 
             @Override
@@ -156,6 +168,6 @@ public class AdminCreateCourse extends AppCompatActivity {
         else{
             return false;
         }
->>>>>>> Stashed changes
+
     }
 }

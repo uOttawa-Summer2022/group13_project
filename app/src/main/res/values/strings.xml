@@ -23,4 +23,5 @@
     <string name="admin_create_course_course_create">Create</string>
     <string name="admin_delete_course_course_delete">Delete</string>
     <string name="admin_edit_course_course_update">Update</string>
+    <string name="user_role"></string>
 </resources>

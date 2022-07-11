@@ -8,12 +8,12 @@
 
     <EditText
         android:id="@+id/editCourseCourseNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="279dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
-        android:inputType="number"
+        android:hint="Enter an existing course code"
         android:minHeight="48dp"
-        android:text="Course Number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.427"
@@ -25,28 +25,30 @@
         android:id="@+id/editCourseCourseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:ems="10"
+        android:hint="Enter new course name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Course Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.427"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.163" />
+        app:layout_constraintVertical_bias="0.155" />
 
     <Button
         android:id="@+id/editCourseSubmitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:enabled="false"
         android:text="@string/admin_edit_course_course_update"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.247" />
+        app:layout_constraintTop_toBottomOf="@+id/editCourseCourseName"
+        app:layout_constraintVertical_bias="0.026" />
 
     <Button
         android:id="@+id/returnToMenu"
@@ -57,17 +59,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.317" />
+        app:layout_constraintTop_toBottomOf="@+id/editCourseSubmitButton"
+        app:layout_constraintVertical_bias="0.024" />
 
-    <ListView
-        android:layout_width="380dp"
-        android:layout_height="448dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:layout_width="407dp"
+        android:layout_height="300dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.935" />
+        app:layout_constraintTop_toBottomOf="@+id/returnToMenu">
+
+        <ListView
+            android:id="@+id/editCourseListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

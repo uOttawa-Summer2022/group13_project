@@ -4,12 +4,26 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.project.R;
 
+import java.util.ArrayList;
+
 public class AdminActivity extends AppCompatActivity {
+     EditText courseName, courseCode;
+     ListView courseListView;
+
+    ArrayList<String> courseList;
+    ArrayAdapter adapter;
+    AdminCreateCourse adminCreateCourse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,15 +34,23 @@ public class AdminActivity extends AppCompatActivity {
         final Button editC = findViewById(R.id.editCourseButton);
         final Button deleteC = findViewById(R.id.deleteCourseButton);
         final Button manageB = findViewById(R.id.manage_user_account);
-<<<<<<< Updated upstream
-        manageB.setEnabled(false);
-=======
+
         final Button logout = findViewById(R.id.logoutButton);
 
         manageB.setEnabled(true);
 
->>>>>>> Stashed changes
-        createC.setOnClickListener(new View.OnClickListener() {
+
+       courseList = new ArrayList<>();
+
+       courseName = (EditText)findViewById(R.id.courseName);
+       courseCode = (EditText)findViewById(R.id.courseCode);
+        
+       courseListView = findViewById(R.id.courseListView);
+
+       adminCreateCourse = new AdminCreateCourse(this);
+
+
+       createC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("DBFB", "create button clicked");
@@ -36,6 +58,7 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(createCourseIntent);
             }
         });
+      
         editC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,15 +67,16 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(ediCourseIntent);
             }
         });
+      
         deleteC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("DBFB", "delete button clicked");
                 Intent deleteCourseIntent = new Intent(AdminActivity.this, AdminDeleteCourseActivity.class);
                 startActivity(deleteCourseIntent);
             }
         });
-<<<<<<< Updated upstream
-=======
+
 
         manageB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +86,7 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(userAdIntent);
             }
         });
+
 
         logout.setOnClickListener((new View.OnClickListener() {
             @Override
@@ -74,6 +99,9 @@ public class AdminActivity extends AppCompatActivity {
          
         
 
->>>>>>> Stashed changes
+         
+        
+
+
     }
 }

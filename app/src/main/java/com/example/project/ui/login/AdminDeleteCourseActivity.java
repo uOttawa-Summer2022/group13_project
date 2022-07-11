@@ -2,48 +2,58 @@ package com.example.project.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< Updated upstream
-=======
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
->>>>>>> Stashed changes
+
 
 import com.example.project.R;
 
-public class AdminDeleteCourseActivity extends AppCompatActivity {
+import com.example.project.data.FireBaseDataBaseHandler;
 
-<<<<<<< Updated upstream
-=======
+import com.example.project.data.model.Course;
+
+
     boolean isCodeValid = false;
     boolean isNameValid = false;
     FireBaseDataBaseHandler fBH;
     ArrayAdapter<Course> adapter;
 
 
->>>>>>> Stashed changes
+public class AdminDeleteCourseActivity extends AppCompatActivity {
+    boolean isCodeValid = false;
+    boolean isNameValid = false;
+    FireBaseDataBaseHandler fBH;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        fBH = new FireBaseDataBaseHandler();
+        fBH.readCoursesFromFireBase();
         setContentView(R.layout.activity_admin_delete_course);
-<<<<<<< Updated upstream
+
     }
 }
-=======
+
         Log.d("DBFB", "from deleteCourseActivity");
 
         final EditText courseCode = findViewById(R.id.deleteCourseCourseNumber);
         final EditText courseName = findViewById(R.id.deleteCourseCourseName);
         final Button deleteBtn = findViewById(R.id.deleteCourseSubmitButton);
         final Button backToMenu = findViewById(R.id.returnToMenu);
+
         final ListView listView = findViewById(R.id.deleteCourseListView);
+
 
 
 
@@ -51,7 +61,9 @@ public class AdminDeleteCourseActivity extends AppCompatActivity {
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
                 displayCourses();
+
 
             }
 
@@ -84,6 +96,7 @@ public class AdminDeleteCourseActivity extends AppCompatActivity {
 
         courseName.addTextChangedListener(new TextWatcher() {
             @Override
+
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
                 displayCourses();
 
@@ -149,12 +162,14 @@ public class AdminDeleteCourseActivity extends AppCompatActivity {
 
 
     }
+
     private void displayCourses() {
         Log.d("DBFB", "displayCourses");
         adapter = new ArrayAdapter<Course>(this, android.R.layout.simple_list_item_1, fBH.getCourses());
         final ListView listView = findViewById(R.id.deleteCourseListView);
         listView.setAdapter(adapter);
     }
+
 
     private boolean enableCreateButton(){
         if(isCodeValid && isNameValid){
@@ -167,4 +182,4 @@ public class AdminDeleteCourseActivity extends AppCompatActivity {
 
 
 }
->>>>>>> Stashed changes
+
