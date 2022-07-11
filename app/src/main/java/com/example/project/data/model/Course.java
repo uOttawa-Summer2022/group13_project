@@ -60,6 +60,7 @@ public class Course {
         return "Course{" +
                 "courseName='" + courseName + '\'' +
                 ", courseCode='" + courseCode + '\'' +
+                ", courseInstructor='" + courseInstructor + '\'' +
                 '}';
     }
 }
