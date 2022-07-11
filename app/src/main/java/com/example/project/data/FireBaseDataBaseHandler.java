@@ -142,7 +142,7 @@ public class FireBaseDataBaseHandler {
     public boolean checkCourseInstructorExists(Course course){
         for (Course c: courses){
             Log.d("DBFB", "Check!!!!! i is" + i.toString() + "instructor is" + course.toString());
-                if(course.getCourseInstructor().equals(i.(getCourseInstructor())){
+                if(course.getCourseInstructor().equals(i.getCourseInstructor())){
                     return true;
                 }
             }
