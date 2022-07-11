@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.example.project.data.model.Course;
 import com.example.project.data.model.User;
+import com.example.project.ui.login.CourseSubscriber;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,7 +39,7 @@ public class FireBaseDataBaseHandler {
 
     private boolean isUsersCallbackDone = false;
     private boolean isCourseCallbackDone = false;
-
+    private CourseSubscriber cScriber = null;
 
 
     public FireBaseDataBaseHandler(){
@@ -54,6 +55,9 @@ public class FireBaseDataBaseHandler {
            @Override
            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                isCourseCallbackDone = true;
+               if(cScriber != null){
+                   cScriber.updateCourses();
+               }
                courses.clear();
                for(DataSnapshot d: dataSnapshot.getChildren() ){
                    Course c = new Course(d.child(COURSE_NAME).getValue().toString(),d.getKey());
@@ -204,5 +208,8 @@ public class FireBaseDataBaseHandler {
 
     public boolean isUsersCallbackDone() {
         return isUsersCallbackDone;
+    }
+    public void registerCourseSubscriber(CourseSubscriber cS){
+        this.cScriber = cS;
     }
 }

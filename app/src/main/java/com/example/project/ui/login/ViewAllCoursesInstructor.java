@@ -11,7 +11,7 @@ import com.example.project.R;
 import com.example.project.data.FireBaseDataBaseHandler;
 import com.example.project.data.model.Course;
 
-public class ViewAllCoursesInstructor extends AppCompatActivity {
+public class ViewAllCoursesInstructor extends AppCompatActivity implements CourseSubscriber {
     FireBaseDataBaseHandler fBH;
     ArrayAdapter<Course> adapter;
     @Override
@@ -23,8 +23,9 @@ public class ViewAllCoursesInstructor extends AppCompatActivity {
 
         setContentView(R.layout.activity_view_all_courses_instructor);
         fBH = new FireBaseDataBaseHandler();
+        fBH.registerCourseSubscriber(this);
         fBH.readCoursesFromFireBase();
-        displayCourses();
+        //displayCourses();
 
     }
     private void displayCourses(){
@@ -35,5 +36,10 @@ public class ViewAllCoursesInstructor extends AppCompatActivity {
         adapter = new ArrayAdapter<Course>(this, android.R.layout.simple_list_item_1,fBH.getCourses());
         final ListView courseListView= findViewById(R.id.viewAllCourses);
         courseListView.setAdapter(adapter);
+    }
+
+    @Override
+    public void updateCourses() {
+        displayCourses();
     }
 }
