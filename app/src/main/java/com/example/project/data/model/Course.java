@@ -5,6 +5,7 @@ public class Course {
     private String courseName;
     //Changed here to int from String
     private String courseCode;
+    private String courseInstructor;
 
     public Course() {
     }
@@ -13,11 +14,13 @@ public class Course {
 //        this.courseId = courseId;
 //        this.courseName=courseName;
 //        this.courseCode=courseCode;
+          this.courseInstructor="";
 //    }
 
     public Course(String courseName, String courseCode) {
         this.courseName=courseName;
         this.courseCode=courseCode;
+        this.courseInstructor="";
     }
 
     public int getCourseId() {
@@ -43,12 +46,21 @@ public class Course {
     public void setCourseCode(String courseCode) {
         this.courseCode=courseCode;
     }
-
+    
+    public String getCourseInstructor() {
+        return courseInstructor;
+    }
+    
+    public setCourseInstructor(String name){
+        this.courseInstructor = name;
+    }
+    
     @Override
     public String toString() {
         return "Course{" +
                 "courseName='" + courseName + '\'' +
                 ", courseCode='" + courseCode + '\'' +
+                ", courseInstructor='" + courseInstructor + '\'' +
                 '}';
     }
 }
