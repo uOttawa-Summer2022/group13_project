@@ -64,7 +64,7 @@ public class InstructorAssignCourseActivity extends AppCompatActivity {
                 } else {
                     if(fBH.addCourseInstructor(course)){
                         Toast.makeText(InstructorActivity.this, "Course assignment succesful",Toast.LENGTH_SHORT).show();
-                        AdminActivity.currentCourse = fBH.getCourse(course);
+                        AdminActivity.Course = fBH.getCourse(course);
                         startActivity(new Intent(getApplicationContext(), AdminActivity.class));
                     } else{
                         Toast.makeText(InstructorAssignCourseActivity.this, "Course assignment failed",Toast.LENGTH_SHORT).show();
