@@ -30,10 +30,10 @@ public class InstructorAssignCourseActivity extends AppCompatActivity {
         fBH.readCoursesFromFireBase();
         setContentView(R.layout.activity_instructor_assign_course);
 
-        final EditText courseCode = findViewById(R.id.editCourseCourseNumber);
-        final EditText courseName = findViewById(R.id.editCourseCourseName);
-        final Button Assign = findViewById(R.id.editCourseSubmitButton);
-        final Button Cancel = findViewById(R.id.returnToMenu);
+        final EditText courseCode = findViewById(R.id.assignCourseNumber);
+        final EditText courseName = findViewById(R.id.assignCourseName);
+        final Button Assign = findViewById(R.id.button);
+        final Button Cancel = findViewById(R.id.button2);
     
         
         AssignBtn.setOnClickListener(new View.OnClickListener() {
@@ -63,7 +63,7 @@ public class InstructorAssignCourseActivity extends AppCompatActivity {
                     Toast.makeText(InstructorAssignCourseActivity.this, "This course has an instructor",Toast.LENGTH_SHORT).show();
                 } else {
                     if(fBH.addCourseInstructor(course)){
-                        Toast.makeText(InstructorActivity.this, "Course assignment succesful",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(InstructorAssignCourseActivity.this, "Course assignment succesful",Toast.LENGTH_SHORT).show();
                         AdminActivity.Course = fBH.getCourse(course);
                         startActivity(new Intent(getApplicationContext(), AdminActivity.class));
                     } else{
