@@ -24,16 +24,14 @@ import com.example.project.data.FireBaseDataBaseHandler;
 import com.example.project.data.model.Course;
 
 
-    boolean isCodeValid = false;
-    boolean isNameValid = false;
-    FireBaseDataBaseHandler fBH;
-    ArrayAdapter<Course> adapter;
+
 
 
 public class AdminDeleteCourseActivity extends AppCompatActivity {
     boolean isCodeValid = false;
     boolean isNameValid = false;
     FireBaseDataBaseHandler fBH;
+    ArrayAdapter<Course> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +40,6 @@ public class AdminDeleteCourseActivity extends AppCompatActivity {
         fBH.readCoursesFromFireBase();
         setContentView(R.layout.activity_admin_delete_course);
 
-    }
-}
 
         Log.d("DBFB", "from deleteCourseActivity");
 

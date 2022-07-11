@@ -40,16 +40,6 @@ public class AdminActivity extends AppCompatActivity {
         manageB.setEnabled(true);
 
 
-       courseList = new ArrayList<>();
-
-       courseName = (EditText)findViewById(R.id.courseName);
-       courseCode = (EditText)findViewById(R.id.courseCode);
-        
-       courseListView = findViewById(R.id.courseListView);
-
-       adminCreateCourse = new AdminCreateCourse(this);
-
-
        createC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
