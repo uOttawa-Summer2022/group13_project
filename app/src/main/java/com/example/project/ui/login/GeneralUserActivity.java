@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -44,10 +45,18 @@ public class GeneralUserActivity extends AppCompatActivity {
         searchCourseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent searchAllCoursesI = new Intent(GeneralUserActivity.this,SearchCourseInstructor.class);
+                startActivity(searchAllCoursesI);
             }
         });
 
+        backTologinBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backToGeneralUserActivity = new Intent(GeneralUserActivity.this, LoginActivity.class);
+                startActivity(backToGeneralUserActivity);
+            }
+        });
 
     }
 }
