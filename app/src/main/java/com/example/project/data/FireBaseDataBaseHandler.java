@@ -19,6 +19,7 @@ public class FireBaseDataBaseHandler {
     private FirebaseDatabase myDataBase;
     private DatabaseReference myRootRef ;
     private final String COURSE_NAME = "CourseName";
+    private final String COURSE_INSTRUCTOR = "CourseInstructor";
     private ArrayList<Course> courses;
 
 
@@ -55,6 +56,29 @@ public class FireBaseDataBaseHandler {
     public void addCourseToFireBase(Course course){
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_NAME).setValue(course.getCourseName());
     }
+    
+    public boolean checkCourseInstructorExists(Course course){
+        for (Course c: courses){
+            Log.d("DBFB", "Check!!!!! i is" + i.toString() + "instructor is" + course.toString());
+                if(course.getCourseInstructor().equals(c.(getCourseInstructor())){
+                    return true;
+                }
+            }
+    }
+    
+    public boolean addCourseInstructor(Course course){
+        Log.d("DBFB", "editInstructor done");
+        myRootRef.child("Courses").child(course.getCourseInstructor()).child(INSTRUCTOR_NAME).setValue(course.getCourseInstructor());
+        
+    }
+                   
+     public boolean deleteCourseInstructor(Course course){
+        Log.d("DBFB", "from databasehandler deleteInstructor");
+        myRootRef.child("Courses").child(course.getCourseInstructor()).setValue(null);
+        
+    }               
+                   
+    
 
     public void editData(Course course){
 
