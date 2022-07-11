@@ -4,21 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioButton;
 
 import com.example.project.R;
-import com.example.project.ViewAllCoursesInstructor;
+//import com.example.project.ui.login.ViewAllCoursesInstructor;
 import com.example.project.data.FireBaseDataBaseHandler;
 import com.example.project.data.model.Course;
-import com.example.project.data.model.User;
 
 public class GeneralUserActivity extends AppCompatActivity {
 
@@ -43,7 +36,7 @@ public class GeneralUserActivity extends AppCompatActivity {
         viewCoursesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewAllCoursesI = new Intent(GeneralUserActivity.this, ViewAllCoursesInstructor.class);
+                Intent viewAllCoursesI = new Intent(GeneralUserActivity.this,ViewAllCoursesInstructor.class);
                 startActivity(viewAllCoursesI);
             }
         });
