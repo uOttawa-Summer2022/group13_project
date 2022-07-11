@@ -2,9 +2,12 @@ package com.example.project.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.project.R;
@@ -21,11 +24,18 @@ public class ViewAllCoursesInstructor extends AppCompatActivity implements Cours
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_all_courses_instructor);
 
-        setContentView(R.layout.activity_view_all_courses_instructor);
+        final Button backToMenu = findViewById(R.id.bckButton);
         fBH = new FireBaseDataBaseHandler();
         fBH.registerCourseSubscriber(this);
         fBH.readCoursesFromFireBase();
         //displayCourses();
+        backToMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backToGeneralUserActivity = new Intent(ViewAllCoursesInstructor.this,GeneralUserActivity.class);
+                startActivity(backToGeneralUserActivity);
+            }
+        });
 
     }
     private void displayCourses(){

@@ -1,7 +1,5 @@
 package com.example.project.data;
 
-import static java.lang.Thread.*;
-
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -13,7 +11,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
@@ -41,6 +38,7 @@ public class FireBaseDataBaseHandler {
     private boolean isUsersCallbackDone = false;
     private boolean isCourseCallbackDone = false;
     private CourseSubscriber cScriber = null;
+
 
 
     public FireBaseDataBaseHandler(){
@@ -232,5 +230,17 @@ public class FireBaseDataBaseHandler {
     }
     public void registerCourseSubscriber(CourseSubscriber cS){
         this.cScriber = cS;
+    }
+
+     public ArrayList<Course> searchForCourse(String courseCode, String courseName) {
+         ArrayList<Course> toRet = new ArrayList<Course>();
+         for(Course c : courses){
+             Log.d("DBFB", "Check!!!!! c is" + c.toString() + " coursecode is " + courseCode + " courname is " + courseName);
+             if(c.getCourseName().equals(courseName) && c.getCourseCode().equals(courseCode)){
+                 toRet.add(c);
+                 return toRet;
+             }
+         }
+         return toRet;
     }
 }

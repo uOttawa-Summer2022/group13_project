@@ -50,9 +50,8 @@ public class LoginActivity extends AppCompatActivity {
         final Button loginButton = binding.login;
         final ProgressBar loadingProgressBar = binding.loading;
         final Button registerButton = binding.registration;
-        final Button genUserBtn = binding.generalUserBtn;
         registerButton.setEnabled(true);
-        genUserBtn.setEnabled(true);
+
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -152,13 +151,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        genUserBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent generaluserI = new Intent(LoginActivity.this,GeneralUserActivity.class);
-                startActivity(generaluserI);
-            }
-        });
+
     }
 
 
