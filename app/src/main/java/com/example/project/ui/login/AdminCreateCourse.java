@@ -4,13 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
+
 
 import com.example.project.R;
 import com.example.project.data.FireBaseDataBaseHandler;
@@ -18,9 +23,12 @@ import com.example.project.data.model.Course;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class AdminCreateCourse extends AppCompatActivity {
+
     boolean isCodeValid = false;
     boolean isNameValid = false;
     FireBaseDataBaseHandler fBH;
+    ArrayAdapter<Course> adapter;
+
 
 
   
@@ -30,16 +38,22 @@ public class AdminCreateCourse extends AppCompatActivity {
         fBH = new FireBaseDataBaseHandler();
         fBH.readCoursesFromFireBase();
         setContentView(R.layout.activity_admin_create_course);
+
         final EditText courseCode = findViewById(R.id.createCourseCourseNumber);
         final EditText courseName = findViewById(R.id.createCourseCourseName);
         final Button createBtn = findViewById(R.id.createCourseSubmitButton);
         final Button backToMenu = findViewById(R.id.returnToMenu);
+
+        final ListView listview = findViewById(R.id.createCourseListView);
+
 
 
 
         courseCode.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                displayCourses();
 
             }
 
@@ -72,6 +86,8 @@ public class AdminCreateCourse extends AppCompatActivity {
         courseName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                displayCourses();
 
             }
 
@@ -138,6 +154,13 @@ public class AdminCreateCourse extends AppCompatActivity {
 
     }
 
+    private void displayCourses() {
+        Log.d("DBFB", "displayCourses");
+        adapter = new ArrayAdapter<Course>(this, android.R.layout.simple_list_item_1, fBH.getCourses());
+        final ListView listView = findViewById(R.id.createCourseListView);
+        listView.setAdapter(adapter);
+    }
+
     private boolean enableCreateButton(){
         if(isCodeValid && isNameValid){
             return true;
@@ -145,5 +168,6 @@ public class AdminCreateCourse extends AppCompatActivity {
         else{
             return false;
         }
+
     }
 }

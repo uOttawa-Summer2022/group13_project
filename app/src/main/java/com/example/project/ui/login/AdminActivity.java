@@ -35,19 +35,15 @@ public class AdminActivity extends AppCompatActivity {
         final Button deleteC = findViewById(R.id.deleteCourseButton);
         final Button manageB = findViewById(R.id.manage_user_account);
 
+        final Button logout = findViewById(R.id.logoutButton);
+
         manageB.setEnabled(true);
-        
-       // courseList = new ArrayList<>();
 
-        //courseName = (EditText)findViewById(R.id.courseName);
-       // courseCode = (EditText)findViewById(R.id.courseCode);
-        
-        //courseListView = findViewById(R.id.courseListView);
 
-       // adminCreateCourse = new AdminCreateCourse(this);
-        createC.setOnClickListener(new View.OnClickListener() {
+       createC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("DBFB", "create button clicked");
                 Intent createCourseIntent = new Intent(AdminActivity.this, AdminCreateCourse.class);
                 startActivity(createCourseIntent);
             }
@@ -56,6 +52,7 @@ public class AdminActivity extends AppCompatActivity {
         editC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("DBFB", "edit button clicked");
                 Intent ediCourseIntent = new Intent(AdminActivity.this, AdminEditCourseActivity.class);
                 startActivity(ediCourseIntent);
             }
@@ -70,6 +67,7 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
+
         manageB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,8 +76,22 @@ public class AdminActivity extends AppCompatActivity {
                 startActivity(userAdIntent);
             }
         });
+
+
+        logout.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("DBFB","logout botton clicked");
+                Intent userLogout = new Intent(AdminActivity.this, LoginActivity.class);
+                startActivity(userLogout);
+            }
+        }));
          
         
+
+         
+        
+
 
     }
 }

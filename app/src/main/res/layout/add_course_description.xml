@@ -3,86 +3,73 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.login.AdminDeleteCourseActivity">
-
+    android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/deleteCourseCourseNumber"
-
-
-        android:layout_width="304dp"
-        android:layout_height="53dp"
-
-        android:ems="10"
-        android:hint="Enter the COURSE CODE to be deleted"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.129" />
-
-    <EditText
-        android:id="@+id/deleteCourseCourseName"
-
-        android:layout_width="304dp"
-        android:layout_height="53dp"
-
-        android:ems="10"
-        android:hint="Enter the COURSE NAME to be deleted"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        app:layout_constraintVertical_bias="0.183" />
-
-    <Button
-        android:id="@+id/deleteCourseSubmitButton"
+        android:id="@+id/additionCourseNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="@string/admin_delete_course_course_delete"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        app:layout_constraintVertical_bias="0.335" />
-
-
-    <Button
-        android:id="@+id/returnToMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Return to Menu"
+        android:ems="10"
+        android:hint="Course Code"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.355" />
+        app:layout_constraintVertical_bias="0.073"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="83dp" />
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="430dp"
-        android:orientation="horizontal"
+    <EditText
+        android:id="@+id/additionCourseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Course Name"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.993">
+        app:layout_constraintVertical_bias="0.183" />
 
-        <ListView
-            android:id="@+id/deleteCourseListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_weight="1" />
-    </LinearLayout>
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="344dp"
+        android:layout_height="308dp"
+        android:ems="10"
+        android:hint="Description"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.478" />
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.742" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.835" />
 </androidx.constraintlayout.widget.ConstraintLayout>
