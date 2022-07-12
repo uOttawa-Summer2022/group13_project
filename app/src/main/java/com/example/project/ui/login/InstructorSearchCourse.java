@@ -36,7 +36,7 @@ public class InstructorSearchCourse extends AppCompatActivity implements CourseS
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_course_instructor);
+        setContentView(R.layout.activity_instructor_search_course);
 
 
         fBH = new FireBaseDataBaseHandler();
