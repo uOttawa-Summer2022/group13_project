@@ -22,7 +22,7 @@ public class InstructorViewAllCourses extends AppCompatActivity implements Cours
         Log.d("DBFB", " From InstructorViewAllCourses constructor");
         //displayCourses();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_all_courses_instructor);
+        setContentView(R.layout.activity_instructor_view_all_courses);
 
         final Button backToMenu = findViewById(R.id.bckButton);
         fBH = new FireBaseDataBaseHandler();
