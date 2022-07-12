@@ -31,7 +31,7 @@ public class GeneralUserActivity extends AppCompatActivity {
         final Button unassignBtn= findViewById(R.id.unassignBtn);
         final Button addCourseDesBtn= findViewById(R.id.addCourseDesBtn);
         final Button editCourseDesBtn = findViewById(R.id.editCourseDes);
-        final Button backTologinBtn = findViewById(R.id.backToSignInpPage);
+        final Button backTologinBtn = findViewById(R.id.backToSignInPage);
 
         viewCoursesBtn.setOnClickListener(new View.OnClickListener() {
             @Override

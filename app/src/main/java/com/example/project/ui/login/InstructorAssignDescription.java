@@ -31,11 +31,13 @@ public class InstructorAssignDescription extends AppCompatActivity{
         fBH = new FireBaseDataBaseHandler();
         fBH.readCoursesFromFireBase();
         setContentView(R.layout.activity_instructor_add_course_description);
+
         final EditText courseCode = findViewById(R.id.additionCourseNumber);
         final EditText courseName = findViewById(R.id.additionCourseName);
         final EditText courseDescription = findViewById(R.id.description);
         final Button done = findViewById(R.id.done);
         final Button cancel = findViewById(R.id.returnToMenu);
+
 
         courseCode.addTextChangedListener(new TextWatcher() {
             @Override

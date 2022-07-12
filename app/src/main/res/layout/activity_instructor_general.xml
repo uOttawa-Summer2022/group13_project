@@ -80,7 +80,7 @@
         app:layout_constraintVertical_bias="0.746" />
 
     <Button
-        android:id="@+id/backToSignInpPage"
+        android:id="@+id/backToSignInPage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go Back to sign in page"
