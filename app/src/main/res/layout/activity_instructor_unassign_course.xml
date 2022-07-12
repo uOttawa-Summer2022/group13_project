@@ -6,25 +6,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/unassignBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Assign"
+        android:text="Unassign"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="294dp" />
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="295dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/returnToMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancel"
+        android:text="Return to Main Menu"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="159dp"
         tools:layout_editor_absoluteY="381dp" />
 
     <EditText
-        android:id="@+id/assignCourseNumber"
+        android:id="@+id/unAssignCourseCourseNumber"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -40,7 +40,7 @@
         tools:layout_editor_absoluteY="83dp" />
 
     <EditText
-        android:id="@+id/assignCourseName"
+        android:id="@+id/unAssignCourseCourseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"

@@ -5,7 +5,7 @@ public class Course {
     private String courseName;
     //Changed here to int from String
     private String courseCode;
-    //private String courseInstructor;
+    private String courseInstructor;
 
     public Course() {
     }
@@ -14,7 +14,7 @@ public class Course {
 //        this.courseId = courseId;
 //        this.courseName=courseName;
 //        this.courseCode=courseCode;
-          this.courseInstructor="";
+//          this.courseInstructor="";
 //    }
 
     public Course(String courseName, String courseCode) {
