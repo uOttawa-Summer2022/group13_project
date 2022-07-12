@@ -20,7 +20,7 @@ import com.example.project.data.model.Course;
 
 import java.util.ArrayList;
 
-public class SearchCourseInstructor extends AppCompatActivity implements CourseSubscriber {
+public class InstructorSearchCourse extends AppCompatActivity implements CourseSubscriber {
 
     boolean isCodeValid = false;
     boolean isNameValid = false;
@@ -36,7 +36,7 @@ public class SearchCourseInstructor extends AppCompatActivity implements CourseS
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_course_instructor);
+        setContentView(R.layout.activity_instructor_search_course);
 
 
         fBH = new FireBaseDataBaseHandler();
@@ -131,7 +131,7 @@ public class SearchCourseInstructor extends AppCompatActivity implements CourseS
         backToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent backToGeneralUserActivity = new Intent(SearchCourseInstructor.this,GeneralUserActivity.class);
+                Intent backToGeneralUserActivity = new Intent(InstructorSearchCourse.this,GeneralUserActivity.class);
                 startActivity(backToGeneralUserActivity);
             }
         });

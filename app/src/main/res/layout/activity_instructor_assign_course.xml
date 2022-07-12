@@ -6,51 +6,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/assignBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Assign"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="294dp" />
+        app:layout_constraintBottom_toTopOf="@+id/returnToMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/assignCourseName"
+        app:layout_constraintVertical_bias="0.581"
+        tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/returnToMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancel"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="159dp"
-        tools:layout_editor_absoluteY="381dp" />
+        android:text="Return to Menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.512"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/assignCourseNumber"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Course Code"
         android:minHeight="48dp"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="83dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.143" />
 
     <EditText
         android:id="@+id/assignCourseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Course Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:hint="Course Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.25" />
 </androidx.constraintlayout.widget.ConstraintLayout>
