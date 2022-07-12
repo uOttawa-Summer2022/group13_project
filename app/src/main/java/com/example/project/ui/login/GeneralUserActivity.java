@@ -70,12 +70,22 @@ public class GeneralUserActivity extends AppCompatActivity {
             }
         });
 
-        editCourseDesBtn.setOnClickListener(new View.OnClickListener() {
+        addCourseDesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("DBFB", "Add Description Course");
-                Intent addDescription = new Intent(GeneralUserActivity.this, InstructorEditDescription.class);
+                Intent addDescription = new Intent(GeneralUserActivity.this, InstructorAssignDescription.class);
                 startActivity(addDescription);
+            }
+        });
+
+        editCourseDesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("DBFB", "Edit Description Course");
+                Intent editDescription = new Intent(GeneralUserActivity.this, InstructorEditDescription.class);
+                Log.d("DBFB", "Edit Description Course**2");
+                startActivity(editDescription);
             }
         });
 

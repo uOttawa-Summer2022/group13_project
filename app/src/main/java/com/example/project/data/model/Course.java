@@ -65,6 +65,8 @@ public class Course {
         this.courseInstructor = name;
     }
 
+    public String getCourseInstructor(){return this.courseInstructor;}
+
     public String getCourseDescription(){ return courseDescription;}
 
     public void setCourseDescription(String describe){ this.courseDescription = describe;}
