@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents/GitHub/group13_project/app/src/main/res/layout/activity_general_user.xml" value="0.2859375" />
         <entry key="..\:/Documents/GitHub/group13_project/app/src/main/res/layout/activity_instructor_assign_course.xml" value="0.13905775075987842" />
         <entry key="..\:/Documents/GitHub/group13_project/app/src/main/res/layout/activity_instructor_unassign_course.xml" value="0.2859375" />
         <entry key="..\:/Documents/GitHub/group13_project/app/src/main/res/layout/add_course_description.xml" value="0.19021739130434784" />
