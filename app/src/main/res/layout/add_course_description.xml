@@ -51,7 +51,7 @@
         app:layout_constraintVertical_bias="0.478" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Done"
@@ -63,7 +63,7 @@
         app:layout_constraintVertical_bias="0.742" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancel"

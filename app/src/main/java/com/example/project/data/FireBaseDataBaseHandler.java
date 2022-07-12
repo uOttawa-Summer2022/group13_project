@@ -25,6 +25,7 @@ public class FireBaseDataBaseHandler {
     private DatabaseReference myRootRef ;
     private final String COURSE_NAME = "CourseName";
     private final String COURSE_INSTRUCTOR = "CourseInstructor";
+    private final String COURSE_DESCRIPTION = "CourseDescription";
     private final String USER_NAME = "UserName";  //user name denotes the email
     private final String FIRST_NAME = "FirstName";
     private final String LAST_NAME = "LastName";
@@ -101,6 +102,14 @@ public class FireBaseDataBaseHandler {
 
     public void addCourseToFireBase(Course course){
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_NAME).setValue(course.getCourseName());
+    }
+
+    public void addDescriptionToFirebase(Course course){
+        myRootRef.child("Description").child(course.getCourseDescription()).child(COURSE_DESCRIPTION).setValue(course.getCourseDescription());
+    }
+
+    public void editDescriptionOnFireBase(Course course){
+        myRootRef.child("Description").child(course.getCourseDescription()).child(COURSE_DESCRIPTION).setValue(course.getCourseDescription());
     }
 
 
