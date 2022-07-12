@@ -105,11 +105,14 @@ public class FireBaseDataBaseHandler {
     }
 
     public void addDescriptionToFirebase(Course course){
-        myRootRef.child("Description").child(course.getCourseDescription()).child(COURSE_DESCRIPTION).setValue(course.getCourseDescription());
+        //myRootRef.child("Description").child(course.getCourseDescription()).child(COURSE_DESCRIPTION).setValue(course.getCourseDescription());
+        //shabrina Changed
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DESCRIPTION).setValue(course.getCourseDescription());
     }
 
     public void editDescriptionOnFireBase(Course course){
-        myRootRef.child("Description").child(course.getCourseDescription()).child(COURSE_DESCRIPTION).setValue(course.getCourseDescription());
+        //shabrina Changed
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DESCRIPTION).setValue(course.getCourseDescription());
     }
 
 

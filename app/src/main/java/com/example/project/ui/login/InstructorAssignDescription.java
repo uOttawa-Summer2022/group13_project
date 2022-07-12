@@ -2,6 +2,7 @@ package com.example.project.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.text.Editable;
@@ -36,7 +37,7 @@ public class InstructorAssignDescription extends AppCompatActivity{
         final EditText courseName = findViewById(R.id.additionCourseName);
         final EditText courseDescription = findViewById(R.id.description);
         final Button done = findViewById(R.id.done);
-        final Button cancel = findViewById(R.id.returnToMenu);
+        final Button cancel = findViewById(R.id.returnToMenu_addCourseDes);
 
 
         courseCode.addTextChangedListener(new TextWatcher() {
@@ -97,12 +98,14 @@ public class InstructorAssignDescription extends AppCompatActivity{
                 course.setCourseDescription(courseDescription.getText().toString());
                 ///have to instantiate databse obj and create a course obj and add that to datab
                 if(fBH.courseCodeExistsInDatabase(course)){
-                    Log.d("DBFB", "Description exists");
-                    Toast.makeText(getApplicationContext(), "Description for " + course.getCourseCode() + " already exist! NOT ADDED" , Toast.LENGTH_SHORT).show();
+                    //Shabrina changed
+                    Log.d("DBFB", "Course exists and description can be added");
+                    fBH.addDescriptionToFirebase(course);
+                    Toast.makeText(getApplicationContext(), "Description for " + course.getCourseCode() + " has been added" , Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Log.d("DBFB", "course not exist");
-                    fBH.addDescriptionToFirebase(course);
+                    //fBH.addDescriptionToFirebase(course);
                 }
                 courseCode.setText("");
                 courseCode.setError(null);
@@ -111,6 +114,14 @@ public class InstructorAssignDescription extends AppCompatActivity{
                 isNameValid = false;
                 done.setEnabled(false);
                 Toast.makeText(getApplicationContext(), "Description " + course.getCourseDescription() + " added to database" , Toast.LENGTH_SHORT).show();
+            }
+        });
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("DBFB", "Logout");
+                Intent backToGeneralUserActivity = new Intent(InstructorAssignDescription.this, GeneralUserActivity.class);
+                startActivity(backToGeneralUserActivity);
             }
         });
     }

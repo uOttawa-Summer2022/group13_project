@@ -26,6 +26,9 @@
             android:name=".ui.login.InstructorAssignDescription"
             android:exported="false" />
         <activity
+            android:name=".ui.login.InstructorEditDescription"
+            android:exported="false" />
+        <activity
             android:name=".ui.login.InstructorAssignCourseActivity"
             android:exported="false" />
         <activity
