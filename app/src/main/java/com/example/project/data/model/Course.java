@@ -6,6 +6,7 @@ public class Course {
     //Changed here to int from String
     private String courseCode;
     private String courseInstructor;
+
     private String courseDescription;
 
     public Course() {
@@ -17,6 +18,13 @@ public class Course {
 //        this.courseCode=courseCode;
 //          this.courseInstructor="";
 //    }
+
+    public Course(String courseName, String courseCode){
+        this.courseName = courseName;
+        this.courseCode = courseCode;
+        this.courseDescription = "";
+        this.courseInstructor = "";
+    }
 
     public Course(String courseName, String courseCode, String courseDescription) {
         this.courseName=courseName;

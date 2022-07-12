@@ -14,12 +14,12 @@ import com.example.project.R;
 import com.example.project.data.FireBaseDataBaseHandler;
 import com.example.project.data.model.Course;
 
-public class ViewAllCoursesInstructor extends AppCompatActivity implements CourseSubscriber {
+public class InstructorViewAllCourses extends AppCompatActivity implements CourseSubscriber {
     FireBaseDataBaseHandler fBH;
     ArrayAdapter<Course> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("DBFB", " From ViewAllCoursesInstructor constructor");
+        Log.d("DBFB", " From InstructorViewAllCourses constructor");
         //displayCourses();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_all_courses_instructor);
@@ -32,7 +32,7 @@ public class ViewAllCoursesInstructor extends AppCompatActivity implements Cours
         backToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent backToGeneralUserActivity = new Intent(ViewAllCoursesInstructor.this,GeneralUserActivity.class);
+                Intent backToGeneralUserActivity = new Intent(InstructorViewAllCourses.this,GeneralUserActivity.class);
                 startActivity(backToGeneralUserActivity);
             }
         });

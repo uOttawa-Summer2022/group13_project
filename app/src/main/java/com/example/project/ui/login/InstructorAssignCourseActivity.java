@@ -32,31 +32,31 @@ public class InstructorAssignCourseActivity extends AppCompatActivity {
 
         final EditText courseCode = findViewById(R.id.assignCourseNumber);
         final EditText courseName = findViewById(R.id.assignCourseName);
-        final Button Assign = findViewById(R.id.button);
-        final Button Cancel = findViewById(R.id.button2);
+        final Button Assign = findViewById(R.id.assignBtn);
+        final Button Cancel = findViewById(R.id.returnToMenu);
     
         
-        AssignBtn.setOnClickListener(new View.OnClickListener() {
+        Assign.setOnClickListener(new View.OnClickListener() {
             @Override
              public void onClick(View view) {
-                if(courseCode.getText().toString().equals("")){
+                if (courseCode.getText().toString().equals("")) {
                     Toast.makeText(InstructorAssignCourseActivity.this, "Specify the courseCode", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(courseName.getText().equals("")){
+                if (courseName.getText().equals("")) {
                     Toast.makeText(InstructorAssignCourseActivity.this, "Specify the courseName", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Course course = new Course();
                 course.setCourseCode(courseCode.getText().toString());
                 course.setCourseName(courseName.getText().toString());
-               if(fBH.courseCodeExistsInDatabase(course)){
+                if (fBH.courseCodeExistsInDatabase(course)) {
                     Log.d("DBFB", "course exist");
-                    Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  found !!" , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  found !!", Toast.LENGTH_SHORT).show();
                     fBH.editCourseName(course);
-                }else{
-                    Log.d("DBFB", "Course with"+course.getCourseCode()+"do not exist ");
-                    Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  do not exist in the database" , Toast.LENGTH_SHORT).show();
+                } else {
+                    Log.d("DBFB", "Course with" + course.getCourseCode() + "do not exist ");
+                    Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  do not exist in the database", Toast.LENGTH_SHORT).show();
                 }
                 /*
                 if(fBH.checkCourseInstructorExists(course)){
@@ -70,13 +70,16 @@ public class InstructorAssignCourseActivity extends AppCompatActivity {
                         Toast.makeText(InstructorAssignCourseActivity.this, "Course assignment failed",Toast.LENGTH_SHORT).show();
 
                     }
+
+
                 }
             }
-      
-               
+
+                 */
+            }
+
+
         });
-*/
-                 
-             }
-        
-        }
+
+    }
+}
