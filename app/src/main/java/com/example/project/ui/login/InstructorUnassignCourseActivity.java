@@ -33,7 +33,7 @@ public class InstructorUnassignCourseActivity extends AppCompatActivity {
         final EditText courseCode = findViewById(R.id.unAssignCourseCourseNumber);
         final EditText courseName = findViewById(R.id.unAssignCourseCourseName);
         final Button Unassign = findViewById(R.id.unassignBtn);
-        final Button Cancel = findViewById(R.id.returnToMenu);
+        final Button Cancel = findViewById(R.id.returnToMenu2);
     
         
         Unassign.setOnClickListener(new View.OnClickListener() {
@@ -62,10 +62,15 @@ public class InstructorUnassignCourseActivity extends AppCompatActivity {
                     return;
                 }
             }
-                
-               
-      
-               
+
+        });
+
+        Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent backToGeneralUserActivity = new Intent(InstructorUnassignCourseActivity.this,GeneralUserActivity.class);
+                startActivity(backToGeneralUserActivity);
+            }
         });
     }
     }

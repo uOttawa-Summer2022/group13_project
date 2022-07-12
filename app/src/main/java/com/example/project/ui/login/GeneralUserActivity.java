@@ -70,11 +70,11 @@ public class GeneralUserActivity extends AppCompatActivity {
             }
         });
 
-        addCourseDesBtn.setOnClickListener(new View.OnClickListener() {
+        editCourseDesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("DBFB", "Add Description Course");
-                Intent addDescription = new Intent(GeneralUserActivity.this, InstructorAssignDescription.class);
+                Intent addDescription = new Intent(GeneralUserActivity.this, InstructorEditDescription.class);
                 startActivity(addDescription);
             }
         });

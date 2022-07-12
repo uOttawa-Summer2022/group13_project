@@ -11,10 +11,11 @@
         android:layout_height="wrap_content"
         android:text="Assign"
         app:layout_constraintBottom_toTopOf="@+id/returnToMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/assignCourseName"
         app:layout_constraintVertical_bias="0.581"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="161dp" />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/returnToMenu"
@@ -22,10 +23,11 @@
         android:layout_height="wrap_content"
         android:text="Return to Menu"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.512"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="121dp" />
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/assignCourseNumber"
