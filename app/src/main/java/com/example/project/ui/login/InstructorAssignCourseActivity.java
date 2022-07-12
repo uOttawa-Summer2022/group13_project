@@ -18,7 +18,7 @@ import com.example.project.R;
 import com.example.project.data.FireBaseDataBaseHandler;
 import com.example.project.data.model.Course;
 
-public class InstructorAssignCourseActivity extends AppCompatActivity {
+public class InstructorAssignCourseActivity extends AppCompatActivity{
 
     FireBaseDataBaseHandler fBH;
     ArrayAdapter<Course> adapter;

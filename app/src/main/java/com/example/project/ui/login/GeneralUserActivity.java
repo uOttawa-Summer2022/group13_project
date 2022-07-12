@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -36,40 +37,45 @@ public class GeneralUserActivity extends AppCompatActivity {
         viewCoursesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewAllCoursesI = new Intent(GeneralUserActivity.this, InstructorViewAllCourses.class);
-                startActivity(viewAllCoursesI);
+                Log.d("DBFB", "View Course");
+                Intent viewAllCourses = new Intent(GeneralUserActivity.this, InstructorViewAllCourses.class);
+                startActivity(viewAllCourses);
             }
         });
 
         searchCourseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent searchAllCoursesI = new Intent(GeneralUserActivity.this, InstructorSearchCourse.class);
-                startActivity(searchAllCoursesI);
+                Log.d("DBFB", "Search Course");
+                Intent searchAllCourses = new Intent(GeneralUserActivity.this, InstructorSearchCourse.class);
+                startActivity(searchAllCourses);
             }
         });
 
         assignBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent assignCourseI = new Intent(GeneralUserActivity.this,InstructorAssignCourseActivity.class);
-                startActivity(assignCourseI);
+                Log.d("DBFB", "Assign Instructor Course");
+                Intent assignCourse = new Intent(GeneralUserActivity.this, InstructorAssignCourseActivity.class);
+                startActivity(assignCourse);
             }
         });
 
         unassignBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent unassignCourseI = new Intent(GeneralUserActivity.this,InstructorUnassignCourseActivity.class);
-                startActivity(unassignCourseI);
+                Log.d("DBFB", "Unassign Instructor Course");
+                Intent unassignCourse = new Intent(GeneralUserActivity.this, InstructorUnassignCourseActivity.class);
+                startActivity(unassignCourse);
             }
         });
 
         addCourseDesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent addDescriptionI = new Intent(GeneralUserActivity.this,InstructorAssignDescription.class);
-                startActivity(addDescriptionI);
+                Log.d("DBFB", "Add Description Course");
+                Intent addDescription = new Intent(GeneralUserActivity.this, InstructorAssignDescription.class);
+                startActivity(addDescription);
             }
         });
 
@@ -77,6 +83,7 @@ public class GeneralUserActivity extends AppCompatActivity {
         editCourseDesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("DBFB", "Edit Description Course");
                 Intent searchAllCoursesI = new Intent(GeneralUserActivity.this,SearchCourseInstructor.class);
                 startActivity(searchAllCoursesI);
             }
@@ -87,6 +94,7 @@ public class GeneralUserActivity extends AppCompatActivity {
         backTologinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("DBFB", "Logout");
                 Intent backToGeneralUserActivity = new Intent(GeneralUserActivity.this, LoginActivity.class);
                 startActivity(backToGeneralUserActivity);
             }
