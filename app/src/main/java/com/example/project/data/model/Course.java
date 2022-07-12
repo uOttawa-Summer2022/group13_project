@@ -19,6 +19,13 @@ public class Course {
 //          this.courseInstructor="";
 //    }
 
+    public Course(String courseName, String courseCode){
+        this.courseName = courseName;
+        this.courseCode = courseCode;
+        this.courseDescription = "";
+        this.courseInstructor = "";
+    }
+
     public Course(String courseName, String courseCode, String courseDescription) {
         this.courseName=courseName;
         this.courseCode=courseCode;

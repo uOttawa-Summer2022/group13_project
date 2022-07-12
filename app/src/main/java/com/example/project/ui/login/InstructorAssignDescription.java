@@ -2,7 +2,6 @@ package com.example.project.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import android.text.Editable;
@@ -13,14 +12,12 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 
 import com.example.project.R;
 import com.example.project.data.FireBaseDataBaseHandler;
 import com.example.project.data.model.Course;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class InstructorAssignDescription extends AppCompatActivity{
 
@@ -33,11 +30,12 @@ public class InstructorAssignDescription extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         fBH = new FireBaseDataBaseHandler();
         fBH.readCoursesFromFireBase();
-        setContentView(R.layout.add_course_description);
+        setContentView(R.layout.activity_instructor_add_course_description);
         final EditText courseCode = findViewById(R.id.additionCourseNumber);
         final EditText courseName = findViewById(R.id.additionCourseName);
+        final EditText courseDescription = findViewById(R.id.description);
         final Button done = findViewById(R.id.done);
-        final Button cancel = findViewById(R.id.cancel);
+        final Button cancel = findViewById(R.id.returnToMenu);
 
         courseCode.addTextChangedListener(new TextWatcher() {
             @Override
@@ -94,7 +92,7 @@ public class InstructorAssignDescription extends AppCompatActivity{
                 Course course = new Course();
                 course.setCourseCode(courseCode.getText().toString());
                 course.setCourseName(courseName.getText().toString());
-                //course.setCourseDescription(courseDescription.getText().toString());
+                course.setCourseDescription(courseDescription.getText().toString());
                 ///have to instantiate databse obj and create a course obj and add that to datab
                 if(fBH.courseCodeExistsInDatabase(course)){
                     Log.d("DBFB", "Description exists");
