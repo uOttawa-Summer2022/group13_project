@@ -58,7 +58,7 @@ public class InstructorAssignCourseActivity extends AppCompatActivity {
                     Log.d("DBFB", "Course with"+course.getCourseCode()+"do not exist ");
                     Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  do not exist in the database" , Toast.LENGTH_SHORT).show();
                 }
-                
+                /*
                 if(fBH.checkCourseInstructorExists(course)){
                     Toast.makeText(InstructorAssignCourseActivity.this, "This course has an instructor",Toast.LENGTH_SHORT).show();
                 } else {
@@ -75,3 +75,8 @@ public class InstructorAssignCourseActivity extends AppCompatActivity {
       
                
         });
+*/
+                 
+             }
+        
+        }
