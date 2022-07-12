@@ -147,7 +147,7 @@ public class FireBaseDataBaseHandler {
         }
 
     }
-
+  /*
     public boolean checkCourseInstructorExists(Course course){
         for (Course c: courses){
             Log.d("DBFB", "Check!!!!! i is" + i.toString() + "instructor is" + course.toString());
@@ -168,7 +168,7 @@ public class FireBaseDataBaseHandler {
         myRootRef.child("Courses").child(course.getCourseInstructor()).setValue(null);
         
     }               
-                   
+      */             
     public boolean courseCodeExistsInDatabase(Course course) {
         for (Course c: courses) {
             Log.d("DBFB", "Check!!!!! c is" + c.toString() + " course is " + course.toString());

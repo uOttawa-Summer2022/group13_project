@@ -49,9 +49,9 @@ public class Course {
         this.courseCode=courseCode;
     }
     
-    public String getCourseInstructor() {
-        return courseInstructor;
-    }
+    //public String getCourseInstructor() {
+       // return courseInstructor;
+    //}
     
     public void setCourseInstructor(String name){
         this.courseInstructor = name;
