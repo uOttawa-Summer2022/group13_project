@@ -26,6 +26,9 @@ public class FireBaseDataBaseHandler {
     private final String COURSE_NAME = "CourseName";
     private final String COURSE_INSTRUCTOR = "CourseInstructor";
     private final String COURSE_DESCRIPTION = "CourseDescription";
+    private final String COURSE_HOURS = "CourseHours";
+    private final String COURSE_DURATION = "CourseDDuration";
+    private final String COURSE_CAPACITY = "Coursecapacity";
     private final String USER_NAME = "UserName";  //user name denotes the email
     private final String FIRST_NAME = "FirstName";
     private final String LAST_NAME = "LastName";
@@ -108,11 +111,26 @@ public class FireBaseDataBaseHandler {
         //myRootRef.child("Description").child(course.getCourseDescription()).child(COURSE_DESCRIPTION).setValue(course.getCourseDescription());
         //shabrina Changed
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DESCRIPTION).setValue(course.getCourseDescription());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DURATION).setValue(course.getCourseDuration());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_HOURS).setValue(course.getCourseHours());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_CAPACITY).setValue(course.getCourseCapacity());
     }
 
     public void editDescriptionOnFireBase(Course course){
         //shabrina Changed
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DESCRIPTION).setValue(course.getCourseDescription());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DURATION).setValue(course.getCourseDuration());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_HOURS).setValue(course.getCourseHours());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_CAPACITY).setValue(course.getCourseCapacity());
+    }
+
+    public void assignInstructorToCourse(Course course){
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_INSTRUCTOR).setValue(course.getCourseInstructor());
+    }
+
+
+    public void unAssignInstructorToCourse(Course course){
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_INSTRUCTOR).setValue("");
     }
 
 
@@ -132,6 +150,7 @@ public class FireBaseDataBaseHandler {
         Log.d("DBFB", "from databasehandler delecourse");
         myRootRef.child("Courses").child(course.getCourseCode()).setValue(null);
     }
+
     public void deleteUser(User u){
         Log.d("DBFB", "from databasehandler deleteUser");
         Iterator<String> it = users.keySet().iterator();
@@ -150,28 +169,18 @@ public class FireBaseDataBaseHandler {
         }
 
     }
-  /*
+
     public boolean checkCourseInstructorExists(Course course){
         for (Course c: courses){
-            Log.d("DBFB", "Check!!!!! i is" + i.toString() + "instructor is" + course.toString());
-                if(course.getCourseInstructor().equals(i.getCourseInstructor())){
+            Log.d("DBFB", "Check from Instructor exist !!!!! c is" + c.toString() + "instructor is" + course.toString());
+                if(c.getCourseCode().equals(course.getCourseCode()) && ((c.getCourseInstructor().isEmpty()))){
                     return true;
                 }
-            }
+        }
+        return false;
     }
-    
-    public boolean addCourseInstructor(Course course){
-        Log.d("DBFB", "editInstructor done");
-        myRootRef.child("Courses").child(course.getCourseInstructor()).child(COURSE_INSTRUCTOR).setValue(course.getCourseInstructor());
-        
-    }
-                   
-     public boolean deleteCourseInstructor(Course course){
-        Log.d("DBFB", "from databasehandler deleteInstructor");
-        myRootRef.child("Courses").child(course.getCourseInstructor()).setValue(null);
-        
-    }               
-      */             
+
+
     public boolean courseCodeExistsInDatabase(Course course) {
         for (Course c: courses) {
             Log.d("DBFB", "Check!!!!! c is" + c.toString() + " course is " + course.toString());
@@ -232,6 +241,7 @@ public class FireBaseDataBaseHandler {
         }
         return new User();
     }
+
     public boolean isCourseCallbackDone()
     {
         return this.isCourseCallbackDone;
