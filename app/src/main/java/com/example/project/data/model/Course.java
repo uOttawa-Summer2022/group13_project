@@ -27,10 +27,10 @@ public class Course {
         this.courseCode = courseCode;
         this.courseDescription = "";
         this.courseInstructor = "";
-    }
-
-
-
+        this.courseDuration = "";
+        this.courseHours = "";
+        this.courseCapacity = "";
+}
     public Course(String courseName, String courseCode, String courseDescription, String courseInstructor, String courseDuration, String courseHours, String courseCapacity) {
         this.courseName=courseName;
         this.courseCode=courseCode;

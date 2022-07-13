@@ -220,11 +220,18 @@ public class InstructorEditDescription extends AppCompatActivity{
                 course.setCourseCapacity(courseCapacity.getText().toString());
                 course.setCourseHours(courseHours.getText().toString());
                 if(fBH.courseCodeExistsInDatabase(course)){
-                    Log.d("DBFB", "course exist and description can be edited");
-                    Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  found and description can be edited!!" , Toast.LENGTH_SHORT).show();
-                    fBH.editDescriptionOnFireBase(course);
+                    if(fBH.checkCourseInstructorExists(course)){
+                        Log.d("DBFB", "course exist and description can be edited");
+                        Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  found and description can be edited!!" , Toast.LENGTH_SHORT).show();
+                        fBH.editDescriptionOnFireBase(course);
+                    }
+                    else{
+                        Log.d("DBFB", "Course with"+course.getCourseCode()+"has not instructor ");
+                        Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  has not instructor" , Toast.LENGTH_SHORT).show();
+                    }
+
                 }else{
-                    Log.d("DBFB", "Course with"+course.getCourseCode()+"do not exist ");
+                    Log.d("DBFB", "Course with "+course.getCourseCode()+" do not exist ");
                     Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  do not exist in the database" , Toast.LENGTH_SHORT).show();
                 }
                 courseCode2.setText("");
