@@ -170,6 +170,7 @@ public class FireBaseDataBaseHandler {
 
     }
 
+
     public boolean checkCourseInstructorExists(Course course){
         for (Course c: courses){
             Log.d("DBFB", "Check from Instructor exist !!!!! c is" + c.toString() + "instructor is" + course.toString());
@@ -179,6 +180,7 @@ public class FireBaseDataBaseHandler {
         }
         return false;
     }
+
 
 
     public boolean courseCodeExistsInDatabase(Course course) {
