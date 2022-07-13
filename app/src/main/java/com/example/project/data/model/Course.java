@@ -6,8 +6,11 @@ public class Course {
     //Changed here to int from String
     private String courseCode;
     private String courseInstructor;
-
     private String courseDescription;
+    private String courseDuration;
+    private String courseHours;
+    private String courseCapacity;
+
 
     public Course() {
     }
@@ -26,11 +29,16 @@ public class Course {
         this.courseInstructor = "";
     }
 
-    public Course(String courseName, String courseCode, String courseDescription) {
+
+
+    public Course(String courseName, String courseCode, String courseDescription, String courseInstructor, String courseDuration, String courseHours, String courseCapacity) {
         this.courseName=courseName;
         this.courseCode=courseCode;
-        this.courseInstructor="";
+        this.courseInstructor=courseInstructor;
         this.courseDescription = courseDescription;
+        this.courseDuration = courseDuration;
+        this.courseHours = courseHours;
+        this.courseCapacity= courseCapacity;
     }
 
     public int getCourseId() {
@@ -57,10 +65,6 @@ public class Course {
         this.courseCode=courseCode;
     }
     
-    //public String getCourseInstructor() {
-       // return courseInstructor;
-    //}
-    
     public void setCourseInstructor(String name){
         this.courseInstructor = name;
     }
@@ -70,6 +74,29 @@ public class Course {
     public String getCourseDescription(){ return courseDescription;}
 
     public void setCourseDescription(String describe){ this.courseDescription = describe;}
+    public String getCourseDuration() {
+        return courseDuration;
+    }
+
+    public void setCourseDuration(String courseDuration) {
+        this.courseDuration = courseDuration;
+    }
+
+    public String getCourseHours() {
+        return courseHours;
+    }
+
+    public void setCourseHours(String courseHours) {
+        this.courseHours = courseHours;
+    }
+
+    public String getCourseCapacity() {
+        return courseCapacity;
+    }
+
+    public void setCourseCapacity(String courseCapacity) {
+        this.courseCapacity = courseCapacity;
+    }
     
     @Override
     public String toString() {
@@ -78,6 +105,9 @@ public class Course {
                 ", courseCode='" + courseCode + '\'' +
                 ", courseInstructor='" + courseInstructor + '\'' +
                 ", courseDescription='" + courseDescription + '\'' +
+                ", courseHours='" + courseHours + '\'' +
+                ", courseDuration='" + courseDuration + '\'' +
+                ", courseCapacity='" + courseCapacity + '\'' +
                 '}';
     }
 }

@@ -22,6 +22,10 @@ public class InstructorEditDescription extends AppCompatActivity{
     boolean isCodeValid = false;
     boolean isNameValid = false;
     boolean isDescriptionValid = false;
+    boolean isDurationValid = false;
+    boolean isHoursValid = false;
+    boolean isCapacityValid = false;
+
     FireBaseDataBaseHandler fBH;
     ArrayAdapter<Course> adapter;
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,9 @@ public class InstructorEditDescription extends AppCompatActivity{
 
         final EditText courseCode2 = findViewById(R.id.courseCode2);
         final EditText courseName2 = findViewById(R.id.courseName2);
+        final EditText courseDuration = findViewById(R.id.courseDuration);
+        final EditText courseHours = findViewById(R.id.courseHours);
+        final EditText courseCapacity = findViewById(R.id.courseCapacity);
         final EditText newDescription = findViewById(R.id.description2);
         final Button done2 = findViewById(R.id.done2);
         final Button cancel2 = findViewById(R.id.returnToMenu_editCourseDes);
@@ -65,6 +72,115 @@ public class InstructorEditDescription extends AppCompatActivity{
                 }
             }
         });
+
+        courseName2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(courseName2.getText().toString()!= null){
+                    isNameValid = true;
+                }
+                else{
+                    isNameValid = false;
+                }
+                if(enableDoneButton()){
+                    done2.setEnabled(true);
+                }
+            }
+        });
+
+        courseDuration.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(courseDuration.getText().toString()!=null  && courseDuration.getText().toString().matches("[0-9][0-9]")){
+                    courseDuration.setError(null);
+                    isDurationValid=true;
+                }else{
+                    courseDuration.setError("CourseDuration format should be (i.e): 12");
+                    isDurationValid=false;
+                }
+                if(enableDoneButton()){
+                    done2.setEnabled(true);
+                }
+            }
+        });
+
+
+        courseHours.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(courseHours.getText().toString()!=null  && courseHours.getText().toString().matches("[0-9][0-9]")){
+                    courseHours.setError(null);
+                    isHoursValid=true;
+                }else{
+                    courseHours.setError("CourseHours format should be (i.e): 12");
+                    isHoursValid=false;
+                }
+                if(enableDoneButton()){
+                    done2.setEnabled(true);
+                }
+            }
+        });
+
+
+
+
+        courseCapacity.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(courseCapacity.getText().toString()!=null  && courseCapacity.getText().toString().matches("[0-9][0-9][0-9]")){
+                    courseCapacity.setError(null);
+                    isCapacityValid=true;
+                }else{
+                    courseCapacity.setError("CourseCapacity format should be (i.e): 123");
+                    isCapacityValid=false;
+                }
+                if(enableDoneButton()){
+                    done2.setEnabled(true);
+                }
+            }
+        });
+
+
 
         newDescription.addTextChangedListener(new TextWatcher() {
             @Override
@@ -100,6 +216,9 @@ public class InstructorEditDescription extends AppCompatActivity{
                 course.setCourseCode(courseCode2.getText().toString());
                 course.setCourseName(courseName2.getText().toString());
                 course.setCourseDescription(newDescription.getText().toString());
+                course.setCourseDuration(courseDuration.getText().toString());
+                course.setCourseCapacity(courseCapacity.getText().toString());
+                course.setCourseHours(courseHours.getText().toString());
                 if(fBH.courseCodeExistsInDatabase(course)){
                     Log.d("DBFB", "course exist and description can be edited");
                     Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  found and description can be edited!!" , Toast.LENGTH_SHORT).show();
@@ -110,9 +229,20 @@ public class InstructorEditDescription extends AppCompatActivity{
                 }
                 courseCode2.setText("");
                 courseCode2.setError(null);
+                courseCapacity.setText("");
+                courseCapacity.setError(null);
+                courseDuration.setText("");
+                courseDuration.setError(null);
+                courseHours.setText("");
+                courseHours.setError(null);
                 courseName2.setText("");
+                newDescription.setText("");
+                newDescription.setError(null);
                 isCodeValid = false;
                 isNameValid = false;
+                isDurationValid=false;
+                isHoursValid=false;
+                isCapacityValid=false;
                 isDescriptionValid=false;
                 done2.setEnabled(false);
             }
@@ -127,7 +257,7 @@ public class InstructorEditDescription extends AppCompatActivity{
     }
 
     private boolean enableDoneButton(){
-        if(isCodeValid && isNameValid && isDescriptionValid){
+        if(isCodeValid && isNameValid && isDescriptionValid && isCapacityValid && isHoursValid && isDurationValid){
             return true;
         }
         else{
