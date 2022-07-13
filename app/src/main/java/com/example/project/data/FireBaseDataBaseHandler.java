@@ -150,28 +150,7 @@ public class FireBaseDataBaseHandler {
         }
 
     }
-  /*
-    public boolean checkCourseInstructorExists(Course course){
-        for (Course c: courses){
-            Log.d("DBFB", "Check!!!!! i is" + i.toString() + "instructor is" + course.toString());
-                if(course.getCourseInstructor().equals(i.getCourseInstructor())){
-                    return true;
-                }
-            }
-    }
-    
-    public boolean addCourseInstructor(Course course){
-        Log.d("DBFB", "editInstructor done");
-        myRootRef.child("Courses").child(course.getCourseInstructor()).child(COURSE_INSTRUCTOR).setValue(course.getCourseInstructor());
-        
-    }
-                   
-     public boolean deleteCourseInstructor(Course course){
-        Log.d("DBFB", "from databasehandler deleteInstructor");
-        myRootRef.child("Courses").child(course.getCourseInstructor()).setValue(null);
-        
-    }               
-      */             
+          
     public boolean courseCodeExistsInDatabase(Course course) {
         for (Course c: courses) {
             Log.d("DBFB", "Check!!!!! c is" + c.toString() + " course is " + course.toString());
