@@ -300,29 +300,5 @@ public class FireBaseDataBaseHandler {
          return toRet;
     }
     
-     public ArrayList<Course> searchForCourseByCourseCode(String courseCode) {
-         ArrayList<Course> toRet = new ArrayList<Course>();
-         for(Course c : courses){
-             Log.d("DBFB", "Check!!!!! c is" + c.toString() + " coursecode is " + courseCode);
-             if(c.getCourseCode().equals(courseCode)){
-                 toRet.add(c);
-                 return toRet;
-             }
-         }
-         return toRet;
-    }
-    
-     public ArrayList<Course> searchForCourseByCourseName(String courseName) {
-         ArrayList<Course> toRet = new ArrayList<Course>();
-         for(Course c : courses){
-             Log.d("DBFB", "Check!!!!! c is" + c.toString() + " courname is " + courseName);
-             if(c.getCourseName().equals(courseName)){
-                 toRet.add(c);
-                 return toRet;
-             }
-         }
-         return toRet;
-    }
-    
     
 }
