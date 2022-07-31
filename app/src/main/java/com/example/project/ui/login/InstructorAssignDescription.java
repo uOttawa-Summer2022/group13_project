@@ -30,6 +30,7 @@ public class InstructorAssignDescription extends AppCompatActivity{
     private boolean isHoursValid = false;
     private boolean isCapacityValid = false;
     private boolean isDescriptionValid = false;
+    private boolean isDayValid = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class InstructorAssignDescription extends AppCompatActivity{
         final EditText courseDuration = findViewById(R.id.courseDuration_add);
         final EditText courseHours = findViewById(R.id.courseHours_add);
         final EditText courseCapacity = findViewById(R.id.courseCapacity_add);
+        final EditText courseDay = findViewById(R.id.courseDay_add);
 
         final Button done = findViewById(R.id.done);
         final Button cancel = findViewById(R.id.returnToMenu_addCourseDes);
@@ -155,7 +157,30 @@ public class InstructorAssignDescription extends AppCompatActivity{
             }
         });
 
+        courseDay.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(courseDay.getText().toString()!= null){
+                    isDayValid = true;
+                }
+                else{
+                    isDayValid = false;
+                }
+                if(enableDoneButton()){
+                    done.setEnabled(true);
+                }
+            }
+        });
+        
         courseCapacity.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -216,6 +241,7 @@ public class InstructorAssignDescription extends AppCompatActivity{
                 course.setCourseDuration(courseDuration.getText().toString());
                 course.setCourseHours(courseHours.getText().toString());
                 course.setCourseCapacity(courseCapacity.getText().toString());
+                course.setCourseDay(courseDay.getText().toString());
                 ///have to instantiate databse obj and create a course obj and add that to datab
                 if(fBH.courseCodeExistsInDatabase(course)){
                     //Shabrina changed
@@ -244,11 +270,14 @@ public class InstructorAssignDescription extends AppCompatActivity{
                 courseHours.setError(null);
                 courseDescription.setText("");
                 courseDescription.setError(null);
+                courseDay.setText("");
+                courseDay.setError(null);
                 isCodeValid = false;
                 isNameValid = false;
                 isCapacityValid=false;
                 isHoursValid=false;
                 isDurationValid=false;
+                isDayValid=false;
                 done.setEnabled(false);
                 Toast.makeText(getApplicationContext(), "Description " + course.getCourseDescription() + " added to database" , Toast.LENGTH_SHORT).show();
             }
@@ -264,7 +293,7 @@ public class InstructorAssignDescription extends AppCompatActivity{
     }
 
     private boolean enableDoneButton(){
-        if(isCodeValid && isNameValid && isDescriptionValid && isCapacityValid && isHoursValid && isDurationValid){
+        if(isCodeValid && isNameValid && isDescriptionValid && isCapacityValid && isHoursValid && isDurationValid && isDayValid){
             return true;
         }
         else{
