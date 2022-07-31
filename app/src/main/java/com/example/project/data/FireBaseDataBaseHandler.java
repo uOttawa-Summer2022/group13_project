@@ -25,6 +25,7 @@ public class FireBaseDataBaseHandler {
     private DatabaseReference myRootRef ;
     private final String COURSE_NAME = "CourseName";
     private final String COURSE_INSTRUCTOR = "CourseInstructor";
+    private final String COURSE_STUDENT = "CourseStudent";
     private final String COURSE_DESCRIPTION = "CourseDescription";
     private final String COURSE_HOURS = "CourseHours";
     private final String COURSE_DURATION = "CourseDDuration";
@@ -133,7 +134,8 @@ public class FireBaseDataBaseHandler {
     public void assignInstructorToCourse(Course course){
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_INSTRUCTOR).setValue(course.getCourseInstructor());
     }
-
+    
+    
 
     public void unAssignInstructorToCourse(Course course){
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_INSTRUCTOR).setValue("");
@@ -142,6 +144,11 @@ public class FireBaseDataBaseHandler {
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DURATION).setValue("");
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DESCRIPTION).setValue("");
     }
+    
+    public void enrollStudentToCourse(Course course){
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_STUDENT).setValue(course.getCourseStudent());
+    }
+
 
 
     public void addUserToFireBase(User u){
