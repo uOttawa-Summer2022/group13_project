@@ -26,6 +26,7 @@ public class FireBaseDataBaseHandler {
     private final String COURSE_NAME = "CourseName";
     private final String COURSE_INSTRUCTOR = "CourseInstructor";
     private final String COURSE_STUDENT = "CourseStudent";
+    private final String COURSE_DAY = "CourseDay";
     private final String COURSE_DESCRIPTION = "CourseDescription";
     private final String COURSE_HOURS = "CourseHours";
     private final String COURSE_DURATION = "CourseDDuration";
@@ -70,6 +71,12 @@ public class FireBaseDataBaseHandler {
                    c.setCourseDescription(d.child(COURSE_DESCRIPTION).getValue().toString());
                    c.setCourseDuration(d.child(COURSE_DURATION).getValue().toString());
                    c.setCourseCapacity(d.child(COURSE_CAPACITY).getValue().toString());
+                   c.setCourseStudent(d.child(COURSE_STUDENT).getValue().toString());
+                   c.setCourseDay(d.child(COURSE_DAY).getValue().toString());
+                   
+                   
+                   
+                   
 
                    courses.add(c);
                    Log.d("DBFB", c.toString() + " and the courses saved size is " + courses.size());
@@ -121,6 +128,7 @@ public class FireBaseDataBaseHandler {
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DURATION).setValue(course.getCourseDuration());
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_HOURS).setValue(course.getCourseHours());
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_CAPACITY).setValue(course.getCourseCapacity());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DAY).setValue(course.getCourseDay());
     }
 
     public void editDescriptionOnFireBase(Course course){
@@ -129,6 +137,7 @@ public class FireBaseDataBaseHandler {
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DURATION).setValue(course.getCourseDuration());
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_HOURS).setValue(course.getCourseHours());
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_CAPACITY).setValue(course.getCourseCapacity());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DAY).setValue(course.getCourseDay());
     }
 
     public void assignInstructorToCourse(Course course){
@@ -143,6 +152,7 @@ public class FireBaseDataBaseHandler {
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_CAPACITY).setValue("");
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DURATION).setValue("");
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DESCRIPTION).setValue("");
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DAY).setValue("");
     }
     
     public void enrollStudentToCourse(Course course){
