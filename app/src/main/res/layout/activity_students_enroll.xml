@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Button
-        android:id="@+id/EnrollBtn"
+        android:id="@+id/enrollBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:enabled="false"
@@ -32,7 +32,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/EnrollCourseCourseNumber"
+        android:id="@+id/enrollCourseNumber"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -48,7 +48,7 @@
         tools:layout_editor_absoluteY="83dp" />
 
     <EditText
-        android:id="@+id/EnrollCourseCourseName"
+        android:id="@+id/enrollCourseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -63,7 +63,7 @@
         app:layout_constraintVertical_bias="0.183" />
 
     <EditText
-        android:id="@+id/StudentTobeEnrolled"
+        android:id="@+id/enrollStudent"
         android:layout_width="239dp"
         android:layout_height="46dp"
         android:ems="10"
