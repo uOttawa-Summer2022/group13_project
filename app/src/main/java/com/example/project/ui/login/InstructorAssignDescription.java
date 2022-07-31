@@ -219,13 +219,19 @@ public class InstructorAssignDescription extends AppCompatActivity{
                 ///have to instantiate databse obj and create a course obj and add that to datab
                 if(fBH.courseCodeExistsInDatabase(course)){
                     //Shabrina changed
-                    Log.d("DBFB", "Course exists and description can be added");
-                    fBH.addDescriptionToFirebase(course);
-                    Toast.makeText(getApplicationContext(), "Description for " + course.getCourseCode() + " has been added" , Toast.LENGTH_SHORT).show();
-                }
+                    if(fBH.checkCourseInstructorExists(course)){
+                        Log.d("DBFB", "Course exists and description can be added");
+                        fBH.addDescriptionToFirebase(course);
+                        Toast.makeText(getApplicationContext(), "Description for " + course.getCourseCode() + " has been added" , Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Log.d("DBFB", "course has not instructor");
+                    }
+
+                   }
                 else{
                     Log.d("DBFB", "course not exist");
-                    //fBH.addDescriptionToFirebase(course);
+
                 }
                 courseCode.setText("");
                 courseCode.setError(null);

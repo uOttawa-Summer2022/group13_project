@@ -25,6 +25,7 @@ public class FireBaseDataBaseHandler {
     private DatabaseReference myRootRef ;
     private final String COURSE_NAME = "CourseName";
     private final String COURSE_INSTRUCTOR = "CourseInstructor";
+    private final String COURSE_STUDENT = "CourseStudent";
     private final String COURSE_DESCRIPTION = "CourseDescription";
     private final String COURSE_HOURS = "CourseHours";
     private final String COURSE_DURATION = "CourseDDuration";
@@ -64,6 +65,12 @@ public class FireBaseDataBaseHandler {
                courses.clear();
                for(DataSnapshot d: dataSnapshot.getChildren() ){
                    Course c = new Course(d.child(COURSE_NAME).getValue().toString(),d.getKey());
+                   c.setCourseInstructor(d.child(COURSE_INSTRUCTOR).getValue().toString());
+                   c.setCourseHours(d.child(COURSE_HOURS).getValue().toString());
+                   c.setCourseDescription(d.child(COURSE_DESCRIPTION).getValue().toString());
+                   c.setCourseDuration(d.child(COURSE_DURATION).getValue().toString());
+                   c.setCourseCapacity(d.child(COURSE_CAPACITY).getValue().toString());
+
                    courses.add(c);
                    Log.d("DBFB", c.toString() + " and the courses saved size is " + courses.size());
                }
@@ -127,12 +134,26 @@ public class FireBaseDataBaseHandler {
     public void assignInstructorToCourse(Course course){
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_INSTRUCTOR).setValue(course.getCourseInstructor());
     }
-
+    
+    
 
     public void unAssignInstructorToCourse(Course course){
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_INSTRUCTOR).setValue("");
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_HOURS).setValue("");
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_CAPACITY).setValue("");
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DURATION).setValue("");
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DESCRIPTION).setValue("");
+    }
+    
+    public void enrollStudentToCourse(Course course){
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_STUDENT).setValue(course.getCourseStudent());
+    }
+    
+    public void unEnrollStudentToCourse(Course course){
+         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_STUDENT).setValue("");
     }
 
+    
 
     public void addUserToFireBase(User u){
         Log.d("DBFB", "addUser");
@@ -175,6 +196,17 @@ public class FireBaseDataBaseHandler {
         for (Course c: courses){
             Log.d("DBFB", "Check from Instructor exist !!!!! c is" + c.toString() + "instructor is" + course.toString());
                 if(c.getCourseCode().equals(course.getCourseCode()) && ((c.getCourseInstructor().isEmpty()))){
+                    return true;
+                }
+        }
+        return false;
+    }
+
+    
+    public boolean checkCourseStudentExists(Course course){
+        for (Course c: courses){
+            Log.d("DBFB", "Check from Student exist !!!!! c is" + c.toString() + "student is" + course.toString());
+                if(c.getCourseCode().equals(course.getCourseCode()) && ((c.getCourseStudent().isEmpty()))){
                     return true;
                 }
         }
@@ -267,4 +299,6 @@ public class FireBaseDataBaseHandler {
          }
          return toRet;
     }
+    
+    
 }

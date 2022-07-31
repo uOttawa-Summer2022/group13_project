@@ -10,6 +10,7 @@ public class Course {
     private String courseDuration;
     private String courseHours;
     private String courseCapacity;
+    private String courseStudent;
 
 
     public Course() {
@@ -27,11 +28,12 @@ public class Course {
         this.courseCode = courseCode;
         this.courseDescription = "";
         this.courseInstructor = "";
-    }
-
-
-
-    public Course(String courseName, String courseCode, String courseDescription, String courseInstructor, String courseDuration, String courseHours, String courseCapacity) {
+        this.courseStudent = "";
+        this.courseDuration = "";
+        this.courseHours = "";
+        this.courseCapacity = "";
+}
+    public Course(String courseName, String courseCode, String courseDescription, String courseInstructor, String courseDuration, String courseHours, String courseCapacity, String courseStudent) {
         this.courseName=courseName;
         this.courseCode=courseCode;
         this.courseInstructor=courseInstructor;
@@ -39,6 +41,7 @@ public class Course {
         this.courseDuration = courseDuration;
         this.courseHours = courseHours;
         this.courseCapacity= courseCapacity;
+        this.courseStudent = courseStudent;
     }
 
     public int getCourseId() {
@@ -72,6 +75,15 @@ public class Course {
     public String getCourseInstructor(){return this.courseInstructor;}
 
     public String getCourseDescription(){ return courseDescription;}
+    
+    public String getCourseStudent(){return this.courseStudent;}
+    
+     public void setCourseStudent(String name){
+        this.courseStudent = name;
+    }
+    
+
+    public String getCourse(){return this.courseInstructor;}
 
     public void setCourseDescription(String describe){ this.courseDescription = describe;}
     public String getCourseDuration() {
@@ -104,6 +116,7 @@ public class Course {
                 "courseName='" + courseName + '\'' +
                 ", courseCode='" + courseCode + '\'' +
                 ", courseInstructor='" + courseInstructor + '\'' +
+                ", courseStudent='" + courseStudent + '\'' +
                 ", courseDescription='" + courseDescription + '\'' +
                 ", courseHours='" + courseHours + '\'' +
                 ", courseDuration='" + courseDuration + '\'' +

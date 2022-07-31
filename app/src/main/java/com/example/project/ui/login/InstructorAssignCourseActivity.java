@@ -126,25 +126,7 @@ public class InstructorAssignCourseActivity extends AppCompatActivity{
         AssignBtn.setOnClickListener(new View.OnClickListener() {
             @Override
              public void onClick(View view) {
-/*                if (courseCode.getText().toString().equals("")) {
-                    Toast.makeText(InstructorAssignCourseActivity.this, "Specify the courseCode", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (courseName.getText().equals("")) {
-                    Toast.makeText(InstructorAssignCourseActivity.this, "Specify the courseName", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Course course = new Course();
-                course.setCourseCode(courseCode.getText().toString());
-                course.setCourseName(courseName.getText().toString());
-                if (fBH.courseCodeExistsInDatabase(course)) {
-                    Log.d("DBFB", "course exist");
-                    Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  found !!", Toast.LENGTH_SHORT).show();
-                    fBH.editCourseName(course);
-                } else {
-                    Log.d("DBFB", "Course with" + course.getCourseCode() + "do not exist ");
-                    Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  do not exist in the database", Toast.LENGTH_SHORT).show();
-                }*/
+
                 Course course = new Course();
                 course.setCourseCode(courseCode.getText().toString());
                 course.setCourseName(courseName.getText().toString());
