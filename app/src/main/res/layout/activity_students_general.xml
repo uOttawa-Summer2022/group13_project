@@ -20,40 +20,16 @@
         app:layout_constraintVertical_bias="0.189" />
 
     <Button
-        android:id="@+id/searchCourseByCourseCodeBtn"
+        android:id="@+id/searchCourseByEverythingBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search a Course by Course Code"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.439"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.518" />
-
-    <Button
-        android:id="@+id/searchCourseByCourseNameBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search a Course by Course Name"
+        android:text="Search a Course"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.306" />
-
-    <Button
-        android:id="@+id/searchCourseByDayBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search a Course by the day of the week "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42" />
 
     <Button
         android:id="@+id/enrollAsStudentBtn"
@@ -65,7 +41,7 @@
         app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632" />
+        app:layout_constraintVertical_bias="0.42" />
 
     <Button
         android:id="@+id/unenrollBtn"
@@ -77,7 +53,7 @@
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.746" />
+        app:layout_constraintVertical_bias="0.518" />
 
     <Button
         android:id="@+id/backToSignInPage"
@@ -89,7 +65,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.906" />
+        app:layout_constraintVertical_bias="0.632" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
