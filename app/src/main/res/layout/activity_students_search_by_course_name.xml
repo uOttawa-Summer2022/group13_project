@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Course Name"
+        android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
