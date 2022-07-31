@@ -148,8 +148,12 @@ public class FireBaseDataBaseHandler {
     public void enrollStudentToCourse(Course course){
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_STUDENT).setValue(course.getCourseStudent());
     }
+    
+    public void unEnrollStudentToCourse(Course course){
+         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_STUDENT).setValue("");
+    }
 
-
+    
 
     public void addUserToFireBase(User u){
         Log.d("DBFB", "addUser");
@@ -192,6 +196,17 @@ public class FireBaseDataBaseHandler {
         for (Course c: courses){
             Log.d("DBFB", "Check from Instructor exist !!!!! c is" + c.toString() + "instructor is" + course.toString());
                 if(c.getCourseCode().equals(course.getCourseCode()) && ((c.getCourseInstructor().isEmpty()))){
+                    return true;
+                }
+        }
+        return false;
+    }
+
+    
+    public boolean checkCourseStudentExists(Course course){
+        for (Course c: courses){
+            Log.d("DBFB", "Check from Student exist !!!!! c is" + c.toString() + "student is" + course.toString());
+                if(c.getCourseCode().equals(course.getCourseCode()) && ((c.getCourseStudent().isEmpty()))){
                     return true;
                 }
         }
@@ -284,4 +299,30 @@ public class FireBaseDataBaseHandler {
          }
          return toRet;
     }
+    
+     public ArrayList<Course> searchForCourseByCourseCode(String courseCode) {
+         ArrayList<Course> toRet = new ArrayList<Course>();
+         for(Course c : courses){
+             Log.d("DBFB", "Check!!!!! c is" + c.toString() + " coursecode is " + courseCode);
+             if(c.getCourseCode().equals(courseCode)){
+                 toRet.add(c);
+                 return toRet;
+             }
+         }
+         return toRet;
+    }
+    
+     public ArrayList<Course> searchForCourseByCourseName(String courseName) {
+         ArrayList<Course> toRet = new ArrayList<Course>();
+         for(Course c : courses){
+             Log.d("DBFB", "Check!!!!! c is" + c.toString() + " courname is " + courseName);
+             if(c.getCourseName().equals(courseName)){
+                 toRet.add(c);
+                 return toRet;
+             }
+         }
+         return toRet;
+    }
+    
+    
 }
