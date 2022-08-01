@@ -158,7 +158,7 @@ public class StudentEnrollCourseActivity extends AppCompatActivity{
         Cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent backToStudentMenuActivity = new Intent(StudentEnrollCourseActivity.this,GeneralUserActivity.class);
+                Intent backToStudentMenuActivity = new Intent(StudentEnrollCourseActivity.this,GeneralUserActivity_Student.class);
                 startActivity(backToStudentMenuActivity);
             }
         });
