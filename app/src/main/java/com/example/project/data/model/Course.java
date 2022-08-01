@@ -11,6 +11,7 @@ public class Course {
     private String courseHours;
     private String courseCapacity;
     private String courseStudent;
+    private String CourseDay;
 
 
     public Course() {
@@ -32,8 +33,9 @@ public class Course {
         this.courseDuration = "";
         this.courseHours = "";
         this.courseCapacity = "";
+        this.courseDay = "";
 }
-    public Course(String courseName, String courseCode, String courseDescription, String courseInstructor, String courseDuration, String courseHours, String courseCapacity, String courseStudent) {
+    public Course(String courseName, String courseCode, String courseDescription, String courseInstructor, String courseDuration, String courseHours, String courseCapacity, String courseStudent, String courseDay) {
         this.courseName=courseName;
         this.courseCode=courseCode;
         this.courseInstructor=courseInstructor;
@@ -42,6 +44,7 @@ public class Course {
         this.courseHours = courseHours;
         this.courseCapacity= courseCapacity;
         this.courseStudent = courseStudent;
+        this.courseDay = courseDay;
     }
 
     public int getCourseId() {
@@ -82,6 +85,12 @@ public class Course {
         this.courseStudent = name;
     }
     
+    public String getCourseDay(){return this.courseDay;}
+    
+     public void setCourseDay(String day){
+        this.courseDay = day;
+    }
+    
 
     public String getCourse(){return this.courseInstructor;}
 
@@ -118,6 +127,7 @@ public class Course {
                 ", courseInstructor='" + courseInstructor + '\'' +
                 ", courseStudent='" + courseStudent + '\'' +
                 ", courseDescription='" + courseDescription + '\'' +
+                ", courseDay='" + courseDay + '\'' +
                 ", courseHours='" + courseHours + '\'' +
                 ", courseDuration='" + courseDuration + '\'' +
                 ", courseCapacity='" + courseCapacity + '\'' +
