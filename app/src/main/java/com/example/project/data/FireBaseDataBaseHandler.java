@@ -17,6 +17,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
 
 public class FireBaseDataBaseHandler {
@@ -162,6 +163,7 @@ public class FireBaseDataBaseHandler {
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_INSTRUCTOR).setValue(course.getCourseInstructor());
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_CAPACITY).setValue(course.getCourseCapacity());
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_STUDENT).setValue(course.getCourseStudent());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DAY).setValue(course.getCourseDay());
 
 
     }
@@ -353,6 +355,20 @@ public class FireBaseDataBaseHandler {
              }
          }
          return toRet;
+    }
+
+    public boolean courseConflict(String studentName) {
+        for(Course c: courses){
+            for(Course d: courses){
+                Log.d("DBFB", "Check!!!!! c is " + c.toString() + " studentName is " + studentName);
+                if(c.getCourseDay().equals(d.getCourseDay()) && (!c.getCourseCode().equals(d.getCourseCode())) && studentName.equals(c.getCourseStudent())){
+                    return true;
+                }
+            }
+
+            }
+            return false;
+
     }
     
     public ArrayList<Course> searchForStudentCourse(String courseCode, String courseName, String courseDay) {

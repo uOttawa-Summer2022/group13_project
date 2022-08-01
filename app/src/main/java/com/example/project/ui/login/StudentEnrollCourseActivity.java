@@ -134,11 +134,20 @@ public class StudentEnrollCourseActivity extends AppCompatActivity{
                 if(fBH.courseCodeExistsInDatabase(course)){
                     Log.d("DBFB", "****course exist :"+ fBH.checkCourseStudentExists(course));
                     if (fBH.checkCourseStudentExists(course)){
-                        Log.d("DBFB", "course exist and student can be assigned ");
-                        Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  found and course exist and student can be assigned !!", Toast.LENGTH_SHORT).show();
-                        fBH.enrollStudentToCourse(course);
+                        Log.d("DBFB", "course exist");
+
+                        if(!fBH.courseConflict(studentName.getText().toString())){
+                            Log.d("DBFB", "No conflict. Student can join");
+                            Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  found and course exist and student can be assigned !!", Toast.LENGTH_SHORT).show();
+                            fBH.enrollStudentToCourse(course);
+                        }
+                        else{
+                            Log.d("DBFB","Conflict. Student cannot join because schedule mismatch");
+                        }
+
                     }else{
                         Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  is not found but student already exist and student can not be assigned !!", Toast.LENGTH_SHORT).show();
+
                     }
                 }else{
                     Log.d("DBFB", "course does not exist and student can be assigned ");

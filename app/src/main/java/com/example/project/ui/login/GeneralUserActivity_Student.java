@@ -25,7 +25,7 @@ public class GeneralUserActivity_Student extends AdminActivity{
 
         final Button viewCoursesBtn = findViewById(R.id.viewAllEnrolledCourseBtn);
         final Button searchCourseBtn = findViewById(R.id.searchCourseByEverythingBtn);
-        final Button enrollBtn= findViewById(R.id.unenrollBtn);
+        final Button enrollBtn= findViewById(R.id.enrollBtn);
         final Button unEnrollBtn= findViewById(R.id.unenrollBtn);
         final Button backTologinBtn = findViewById(R.id.backToSignInPage);
 

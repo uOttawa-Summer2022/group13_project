@@ -19,7 +19,7 @@ public class StudentViewAllCourses extends AppCompatActivity implements CourseSu
     ArrayAdapter<Course> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("DBFB", " From StudentViewAllCourses constructor");
+        Log.d("DBFB", " From StudentViewCOurse constructor");
         //displayCourses();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_students_view_all_courses);
@@ -27,7 +27,7 @@ public class StudentViewAllCourses extends AppCompatActivity implements CourseSu
         final Button backToMenu = findViewById(R.id.backButton);
         fBH = new FireBaseDataBaseHandler();
         fBH.registerCourseSubscriber(this);
-        fBH.readStudentCoursesFromFireBase();
+        fBH.readCoursesFromFireBase();
         //displayCourses();
         backToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +39,8 @@ public class StudentViewAllCourses extends AppCompatActivity implements CourseSu
 
     }
     private void displayCourses(){
-        Log.d("DBFB", " From viewCoursesStudent displayCourses");
+
+        Log.d("DBFB", " From viewCourseStudent displayCourses");
         adapter = new ArrayAdapter<Course>(this, android.R.layout.simple_list_item_1,fBH.getCourses());
         final ListView courseListView= findViewById(R.id.viewAllStudentCourses);
         courseListView.setAdapter(adapter);
