@@ -14,14 +14,17 @@ public class Course {
 
 
     public Course() {
+        this.courseName = "";
+        this.courseCode = "";
+        this.courseDescription = "";
+        this.courseInstructor = "";
+        this.courseStudent = "";
+        this.courseDuration = "";
+        this.courseHours = "";
+        this.courseCapacity = "";
+        this.courseStudent = "";
     }
 
-//    public Course(int courseIId, String courseName, String courseCode){
-//        this.courseId = courseId;
-//        this.courseName=courseName;
-//        this.courseCode=courseCode;
-//          this.courseInstructor="";
-//    }
 
     public Course(String courseName, String courseCode){
         this.courseName = courseName;
@@ -32,7 +35,9 @@ public class Course {
         this.courseDuration = "";
         this.courseHours = "";
         this.courseCapacity = "";
+        this.courseStudent = "";
 }
+
     public Course(String courseName, String courseCode, String courseDescription, String courseInstructor, String courseDuration, String courseHours, String courseCapacity, String courseStudent) {
         this.courseName=courseName;
         this.courseCode=courseCode;
