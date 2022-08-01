@@ -25,6 +25,7 @@ public class InstructorEditDescription extends AppCompatActivity{
     boolean isDurationValid = false;
     boolean isHoursValid = false;
     boolean isCapacityValid = false;
+    boolean isDayValid = false;
 
     FireBaseDataBaseHandler fBH;
     ArrayAdapter<Course> adapter;
@@ -38,6 +39,7 @@ public class InstructorEditDescription extends AppCompatActivity{
         final EditText courseName2 = findViewById(R.id.courseName2);
         final EditText courseDuration = findViewById(R.id.courseDuration);
         final EditText courseHours = findViewById(R.id.courseHours);
+        final EditText courseDay = findViewById(R.id.courseDay);
         final EditText courseCapacity = findViewById(R.id.courseCapacity);
         final EditText newDescription = findViewById(R.id.description2);
         final Button done2 = findViewById(R.id.done2);
@@ -151,7 +153,30 @@ public class InstructorEditDescription extends AppCompatActivity{
             }
         });
 
+       courseDay.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(courseDay.getText().toString()!= null){
+                    isDayValid = true;
+                }
+                else{
+                    isDayValid = false;
+                }
+                if(enableDoneButton()){
+                    done2.setEnabled(true);
+                }
+            }
+        });
 
 
         courseCapacity.addTextChangedListener(new TextWatcher() {
@@ -219,6 +244,7 @@ public class InstructorEditDescription extends AppCompatActivity{
                 course.setCourseDuration(courseDuration.getText().toString());
                 course.setCourseCapacity(courseCapacity.getText().toString());
                 course.setCourseHours(courseHours.getText().toString());
+                course.setCourseDay(courseDay.getText().toString());
                 if(fBH.courseCodeExistsInDatabase(course)){
                     if(fBH.checkCourseInstructorExists(course)){
                         Log.d("DBFB", "course exist and description can be edited");
@@ -242,6 +268,8 @@ public class InstructorEditDescription extends AppCompatActivity{
                 courseDuration.setError(null);
                 courseHours.setText("");
                 courseHours.setError(null);
+                courseDay.setText("");
+                courseDay.setError(null);
                 courseName2.setText("");
                 newDescription.setText("");
                 newDescription.setError(null);
@@ -251,6 +279,7 @@ public class InstructorEditDescription extends AppCompatActivity{
                 isHoursValid=false;
                 isCapacityValid=false;
                 isDescriptionValid=false;
+                isDayValid=false;
                 done2.setEnabled(false);
             }
         });
@@ -264,7 +293,7 @@ public class InstructorEditDescription extends AppCompatActivity{
     }
 
     private boolean enableDoneButton(){
-        if(isCodeValid && isNameValid && isDescriptionValid && isCapacityValid && isHoursValid && isDurationValid){
+        if(isCodeValid && isNameValid && isDescriptionValid && isCapacityValid && isHoursValid && isDurationValid && isDayValid){
             return true;
         }
         else{
