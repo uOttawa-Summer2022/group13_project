@@ -93,41 +93,39 @@ public class FireBaseDataBaseHandler {
     }
     
     public void readStudentCoursesFromFireBase(){
-       myRootRef.child("Courses").addValueEventListener(new ValueEventListener() {
-           @Override
-           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               isCourseCallbackDone = true;
-               if(cScriber != null){
-                   cScriber.updateCourses();
-               }
-               courses.clear();
-               for(DataSnapshot d: dataSnapshot.getChildren() ){
-                   if(d.child(COURSE_STUDENT).getValue().toString().equals(courseStudent)){
-                   Course c = new Course(d.child(COURSE_NAME).getValue().toString(),d.getKey());
-                   c.setCourseInstructor(d.child(COURSE_INSTRUCTOR).getValue().toString());
-                   c.setCourseHours(d.child(COURSE_HOURS).getValue().toString());
-                   c.setCourseDescription(d.child(COURSE_DESCRIPTION).getValue().toString());
-                   c.setCourseDuration(d.child(COURSE_DURATION).getValue().toString());
-                   c.setCourseCapacity(d.child(COURSE_CAPACITY).getValue().toString());
-                   c.setCourseDay(d.child(COURSE_DAY).getValue().toString());
-                   
-                   
-                   
-                   
-                   
+        myRootRef.child("Courses").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                isCourseCallbackDone = true;
+                if(cScriber != null){
+                    cScriber.updateCourses();
+                }
+                courses.clear();
+                for(DataSnapshot d: dataSnapshot.getChildren() ){
+                    Course c = new Course(d.child(COURSE_NAME).getValue().toString(),d.getKey());
+                    c.setCourseInstructor(d.child(COURSE_INSTRUCTOR).getValue().toString());
+                    c.setCourseHours(d.child(COURSE_HOURS).getValue().toString());
+                    c.setCourseDescription(d.child(COURSE_DESCRIPTION).getValue().toString());
+                    c.setCourseDuration(d.child(COURSE_DURATION).getValue().toString());
+                    c.setCourseCapacity(d.child(COURSE_CAPACITY).getValue().toString());
+                    c.setCourseStudent(d.child(COURSE_STUDENT).getValue().toString());
+                    c.setCourseDay(d.child(COURSE_DAY).getValue().toString());
 
-                   courses.add(c);
-                   Log.d("DBFB", c.toString() + " and the courses saved size is " + courses.size());
-               }
-               }
 
-           }
 
-           @Override
-           public void onCancelled(@NonNull DatabaseError databaseError) {
 
-           }
-       });
+
+                    courses.add(c);
+                    Log.d("DBFB", c.toString() + " and the courses saved size is " + courses.size());
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 

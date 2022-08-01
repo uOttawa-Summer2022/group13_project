@@ -1,9 +1,8 @@
 package com.example.project.data.model;
 
 public class Course {
-    private int courseId;
+
     private String courseName;
-    //Changed here to int from String
     private String courseCode;
     private String courseInstructor;
     private String courseDescription;
@@ -11,18 +10,22 @@ public class Course {
     private String courseHours;
     private String courseCapacity;
     private String courseStudent;
-    private String CourseDay;
+    private String courseDay;
 
 
     public Course() {
+        this.courseName = "";
+        this.courseCode = "";
+        this.courseDescription = "";
+        this.courseInstructor = "";
+        this.courseStudent = "";
+        this.courseDuration = "";
+        this.courseHours = "";
+        this.courseCapacity = "";
+        this.courseDay = "";
     }
 
-//    public Course(int courseIId, String courseName, String courseCode){
-//        this.courseId = courseId;
-//        this.courseName=courseName;
-//        this.courseCode=courseCode;
-//          this.courseInstructor="";
-//    }
+
 
     public Course(String courseName, String courseCode){
         this.courseName = courseName;
@@ -45,14 +48,6 @@ public class Course {
         this.courseCapacity= courseCapacity;
         this.courseStudent = courseStudent;
         this.courseDay = courseDay;
-    }
-
-    public int getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(int courseId) {
-        this.courseId = courseId;
     }
 
     public String getCourseName() {

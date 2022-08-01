@@ -44,7 +44,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/searchByCourseNumber"
+        android:id="@+id/searchByCourseCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -85,7 +85,7 @@
         app:layout_constraintVertical_bias="0.252" />
 
     <EditText
-        android:id="@+id/searchByDate"
+        android:id="@+id/searchByCourseDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"

@@ -136,7 +136,7 @@ public class StudentEnrollCourseActivity extends AppCompatActivity{
                     if (fBH.checkCourseStudentExists(course)){
                         Log.d("DBFB", "course exist and student can be assigned ");
                         Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  found and course exist and student can be assigned !!", Toast.LENGTH_SHORT).show();
-                        fBH.StudentEnrollCourseActivity(course);
+                        fBH.enrollStudentToCourse(course);
                     }else{
                         Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  is not found but student already exist and student can not be assigned !!", Toast.LENGTH_SHORT).show();
                     }
