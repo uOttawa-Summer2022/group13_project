@@ -135,7 +135,7 @@ public class InstructorAssignCourseActivity extends AppCompatActivity{
                     Log.d("DBFB", "****course exist :"+ fBH.checkCourseInstructorExists(course));
                    // Log.d("DBFB", "SetCourse instructor field :"+ fBH.checkCourseInstructorExists(course));
                     //Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  found and course exist and instructor can be assigned !!", Toast.LENGTH_SHORT).show();
-                    if (fBH.checkCourseInstructorExists(course)){
+                    if (!fBH.checkCourseInstructorExists(course)){
                         Log.d("DBFB", "course exist and instructor can be assigned ");
                         Toast.makeText(getApplicationContext(), "Course " + course.getCourseCode() + "  found and course exist and instructor can be assigned !!", Toast.LENGTH_SHORT).show();
                         fBH.assignInstructorToCourse(course);

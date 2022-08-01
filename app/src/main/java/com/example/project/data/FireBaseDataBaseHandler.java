@@ -158,6 +158,14 @@ public class FireBaseDataBaseHandler {
 
     public void addCourseToFireBase(Course course){
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_NAME).setValue(course.getCourseName());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DESCRIPTION).setValue(course.getCourseDescription());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DURATION).setValue(course.getCourseDuration());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_HOURS).setValue(course.getCourseHours());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_INSTRUCTOR).setValue(course.getCourseInstructor());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_CAPACITY).setValue(course.getCourseCapacity());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_STUDENT).setValue(course.getCourseStudent());
+
+
     }
 
     public void addDescriptionToFirebase(Course course){
@@ -244,7 +252,7 @@ public class FireBaseDataBaseHandler {
     public boolean checkCourseInstructorExists(Course course){
         for (Course c: courses){
             Log.d("DBFB", "Check from Instructor exist !!!!! c is" + c.toString() + "instructor is" + course.toString());
-                if(c.getCourseCode().equals(course.getCourseCode()) && ((c.getCourseInstructor().isEmpty()))){
+                if(c.getCourseCode().equals(course.getCourseCode()) && ((!c.getCourseInstructor().equals("")))){
                     return true;
                 }
         }
