@@ -90,6 +90,10 @@ public class LoginActivity extends AppCompatActivity {
                         Intent generaluserI = new Intent(LoginActivity.this,GeneralUserActivity.class);
                         startActivity(generaluserI);
                     }
+                    else if(loginResult.getSuccess().getUserRole().equals("STUDENT")){
+                        Intent generaluserI = new Intent(LoginActivity.this,GeneralUserActivity_Student.class);
+                        startActivity(generaluserI);
+                    }
                     else{
                         String welcome = getString(R.string.welcome) +  loginResult.getSuccess().getDisplayName() + " !" + " You are registered as " + loginResult.getSuccess().getUserRole() ;
                         // TODO : initiate successful logged in experience

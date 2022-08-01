@@ -37,6 +37,11 @@
         <activity
             android:name=".ui.login.GeneralUserActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.login.GeneralUserActivity_Student"
+            android:exported="false" />
+
+
 
         <activity
             android:name=".ui.login.AdminUserAccountManagement"
