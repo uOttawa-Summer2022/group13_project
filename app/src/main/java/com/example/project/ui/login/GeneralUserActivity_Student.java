@@ -25,7 +25,7 @@ public class GeneralUserActivity_Student extends AdminActivity{
 
         final Button viewCoursesBtn = findViewById(R.id.viewAllEnrolledCourseBtn);
         final Button searchCourseBtn = findViewById(R.id.searchCourseByEverythingBtn);
-        final Button enrollBtn= findViewById(R.id.unenrollBtn);
+        final Button enrollBtn= findViewById(R.id.enrollBtn);
         final Button unEnrollBtn= findViewById(R.id.unenrollBtn);
         final Button backTologinBtn = findViewById(R.id.backToSignInPage);
 
@@ -36,7 +36,7 @@ public class GeneralUserActivity_Student extends AdminActivity{
             public void onClick(View v) {
                 Log.d("DBFB", "View Course student");
                 //Change the second param
-                Intent viewAllCourses = new Intent(GeneralUserActivity_Student.this, InstructorViewAllCourses.class);
+                Intent viewAllCourses = new Intent(GeneralUserActivity_Student.this, StudentViewAllCourses.class);
                 startActivity(viewAllCourses);
             }
         });
@@ -46,7 +46,7 @@ public class GeneralUserActivity_Student extends AdminActivity{
             public void onClick(View v) {
                 Log.d("DBFB", "Search Course");
                 //Change the second param
-                Intent searchAllCourses = new Intent(GeneralUserActivity_Student.this, InstructorSearchCourse.class);
+                Intent searchAllCourses = new Intent(GeneralUserActivity_Student.this, StudentSearchCourse.class);
                 startActivity(searchAllCourses);
             }
         });
@@ -55,9 +55,9 @@ public class GeneralUserActivity_Student extends AdminActivity{
         enrollBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("DBFB", "Search Course");
+                Log.d("DBFB", "Enroll Student Course");
                 //Change the second param
-                Intent enrollCourses = new Intent(GeneralUserActivity_Student.this, InstructorSearchCourse.class);
+                Intent enrollCourses = new Intent(GeneralUserActivity_Student.this, StudentEnrollCourseActivity.class);
                 startActivity(enrollCourses);
             }
         });
@@ -65,9 +65,9 @@ public class GeneralUserActivity_Student extends AdminActivity{
         unEnrollBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("DBFB", "Search Course");
+                Log.d("DBFB", "Unenroll Student Course");
                 //Change the second param
-                Intent unEnrollCourses = new Intent(GeneralUserActivity_Student.this, InstructorSearchCourse.class);
+                Intent unEnrollCourses = new Intent(GeneralUserActivity_Student.this, StudentUnenrollCourseActivity.class);
                 startActivity(unEnrollCourses);
             }
         });

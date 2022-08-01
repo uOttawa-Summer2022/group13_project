@@ -17,6 +17,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
 
 public class FireBaseDataBaseHandler {
@@ -91,6 +92,43 @@ public class FireBaseDataBaseHandler {
        });
 
     }
+    
+    public void readStudentCoursesFromFireBase(){
+        myRootRef.child("Courses").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                isCourseCallbackDone = true;
+                if(cScriber != null){
+                    cScriber.updateCourses();
+                }
+                courses.clear();
+                for(DataSnapshot d: dataSnapshot.getChildren() ){
+                    Course c = new Course(d.child(COURSE_NAME).getValue().toString(),d.getKey());
+                    c.setCourseInstructor(d.child(COURSE_INSTRUCTOR).getValue().toString());
+                    c.setCourseHours(d.child(COURSE_HOURS).getValue().toString());
+                    c.setCourseDescription(d.child(COURSE_DESCRIPTION).getValue().toString());
+                    c.setCourseDuration(d.child(COURSE_DURATION).getValue().toString());
+                    c.setCourseCapacity(d.child(COURSE_CAPACITY).getValue().toString());
+                    c.setCourseStudent(d.child(COURSE_STUDENT).getValue().toString());
+                    c.setCourseDay(d.child(COURSE_DAY).getValue().toString());
+
+
+
+
+
+                    courses.add(c);
+                    Log.d("DBFB", c.toString() + " and the courses saved size is " + courses.size());
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
 
     public void readUsersFromFireBase(){
         Log.d("DBFB", "readUsersFromFire");
@@ -119,6 +157,15 @@ public class FireBaseDataBaseHandler {
 
     public void addCourseToFireBase(Course course){
         myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_NAME).setValue(course.getCourseName());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DESCRIPTION).setValue(course.getCourseDescription());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DURATION).setValue(course.getCourseDuration());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_HOURS).setValue(course.getCourseHours());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_INSTRUCTOR).setValue(course.getCourseInstructor());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_CAPACITY).setValue(course.getCourseCapacity());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_STUDENT).setValue(course.getCourseStudent());
+        myRootRef.child("Courses").child(course.getCourseCode()).child(COURSE_DAY).setValue(course.getCourseDay());
+
+
     }
 
     public void addDescriptionToFirebase(Course course){
@@ -205,7 +252,7 @@ public class FireBaseDataBaseHandler {
     public boolean checkCourseInstructorExists(Course course){
         for (Course c: courses){
             Log.d("DBFB", "Check from Instructor exist !!!!! c is" + c.toString() + "instructor is" + course.toString());
-                if(c.getCourseCode().equals(course.getCourseCode()) && ((c.getCourseInstructor().isEmpty()))){
+                if(c.getCourseCode().equals(course.getCourseCode()) && ((!c.getCourseInstructor().equals("")))){
                     return true;
                 }
         }
@@ -308,6 +355,20 @@ public class FireBaseDataBaseHandler {
              }
          }
          return toRet;
+    }
+
+    public boolean courseConflict(String studentName) {
+        for(Course c: courses){
+            for(Course d: courses){
+                Log.d("DBFB", "Check!!!!! c is " + c.toString() + " studentName is " + studentName);
+                if(c.getCourseDay().equals(d.getCourseDay()) && (!c.getCourseCode().equals(d.getCourseCode())) && studentName.equals(c.getCourseStudent())){
+                    return true;
+                }
+            }
+
+            }
+            return false;
+
     }
     
     public ArrayList<Course> searchForStudentCourse(String courseCode, String courseName, String courseDay) {
